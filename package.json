@@ -1,0 +1,15 @@
+{
+  "name": "clash.mash",
+  "version": "0.0.0",
+  "description": "Where clans can duke it out during war.",
+  "main": "app.js",
+  "author": {
+    "name": "NB",
+    "email": "quik.the.nick@gmail.com"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "express": "3.4.4",
+    "express-handlebars": "^3.0.0"
+  }
+}
