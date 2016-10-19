@@ -10,12 +10,12 @@ html, body {
 	text-align: center;
 	font-size: 5em;
 	margin: 5vh 0 6vh 0;
-	font-family: 'Rock Salt', cursive, sans-serif;
+	font-family: georgia;
 }
 
 .what, .why {
-	font-family: 'Rock Salt', cursive, sans-serif;
-	padding: 0.6em;
+	font-family: georgia;
+	/* padding: 0.6em; */
 	font-weight: 700;
 	font-size: 1.3em;
 	text-align: center;
@@ -24,8 +24,11 @@ html, body {
 }
 
 .what {
-	font-size: 103%;
-	letter-spacing: 2px;
+	font-size: 1.2em;
+	text-indent: 3em;
+	text-align: justify;
+	line-height: 1.6em;
+	letter-spacing: 1.4px;
 }
 
 .why ol {
@@ -49,7 +52,7 @@ html, body {
 	height: 5vh;
 	border: 1px solid #333;
 	width: 80%;
-	font-family: 'Rock Salt', cursive, sans-serif;
+	font-family: monospace;
 }
 
 input[type="submit"] {

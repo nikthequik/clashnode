@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var router = express.Router();
 var routes = require('./routes');
 var api = require('./public/api');
 var exphbs = require('express-handlebars');
@@ -11,9 +12,11 @@ var bodyParser = require('body-parser');
 var http = require('http');
 var https = require('https');
 var path = require('path');
+var socket_io = require('socket.io');
 var firecon = require('./firebaseCon');
-
 var app = express();
+var server = http.Server(app);
+var io = socket_io(server);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -36,6 +39,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+
+app.get('/clashRoom', routes.clashRoom);
 
 app.get('/clans/:clanID', function(req, res) {
   console.log(req.params.clanID);
