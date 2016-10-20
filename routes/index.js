@@ -1,4 +1,4 @@
-﻿
+
 /*
  * GET home page.
  */
@@ -10,4 +10,3 @@ exports.index = function (req, res) {
 exports.clashRoom = function(req, res) {
 	res.render('clashRoom');
 };
-

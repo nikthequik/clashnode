@@ -72,3 +72,31 @@ hr {
 	border: 1px solid #333;
 	border-radius: 1px;
 }
+
+#chat {
+	text-align: center;
+	box-shadow: 2px 2px 2px black;
+	background-color: #FFF;
+	border: 2px solid black;
+	height: 61vh;
+	border-radius: 10px;
+}
+
+#chat ul {
+	list-style: none;
+}
+
+#input {
+	border: 2px solid black;
+	border-radius: 8px;
+	margin-top: 1vh;
+}
+
+#userClan, #oppClan {
+	text-align: center;
+}
+
+#userShield, #oppShield {
+	max-width: 20%;
+}
+

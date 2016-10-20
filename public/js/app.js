@@ -1,35 +1,44 @@
-
-angular.module('home', ['firebase', 'ngRoute'])
+angular.module('clashmash', ['firebase', 'ngRoute'])
 .config( ['$routeProvider', function($routeProvider){
 	$routeProvider.when('/', {
-		templateUrl: '../views/home.html',
+		templateUrl: 'views/index.html',
 		controller: 'HomeCtrl',
 		controllerAs: 'hc'
 	})
 	.when('/clashRoom', {
-		templateUrl: 'views/clash.html',
+		templateUrl: 'views/clashRoom.html',
 		controller: 'MashCtrl',
 		controllerAs: 'mc'
 	});
-	
 }])
-.controller('HomeCtrl', ['$http', '$firebaseObject', '$location', function($http, $firebaseObject, $location){
+.controller('HomeCtrl', ['$http', 'ClanInfo', '$location', function($http, ClanInfo, $location){
 	
   	var hc = this;
-	var auth = firebase.auth();
-	var provider = new firebase.auth.EmailAuthProvider();
-	hc.sendToDb = function() {
-		
-		console.log('fire', hc.clanID);
-		var url = 'clans/' + encodeURIComponent(hc.clanID);
+	/*var auth = firebase.auth();
+	var provider = new firebase.auth.EmailAuthProvider();*/
+	hc.getClans = function() {
+		var userID = hc.userClanID;
+		if (userID[0] !== '#') {
+			userID = '#' + userID;
+		}
+		var url = 'clans/' + encodeURIComponent(userID);
 		$http.get(url)
 		.then(function(res) {
-			console.log(res);
+			ClanInfo.userClan.push(res.data);
+			var oppID = hc.oppClanID;
+			if (oppID[0] !== '#') {
+				oppID = '#' + oppID;
+			}
+			var oppUrl = 'clans/' + encodeURIComponent(oppID);
+			$http.get(oppUrl)
+			.then(function(res){
+				ClanInfo.oppClan.push(res.data);
+				$location.path('/clashRoom');
+			});
 		});
-
 	};
   	
-  	hc.getFromDb = function() {
+  	/*hc.getFromDb = function() {
   		auth.signInWithEmailAndPassword(email, password)
   		.then(function(user){
   			var clanRef = firebase.database().ref('clans');
@@ -38,5 +47,17 @@ angular.module('home', ['firebase', 'ngRoute'])
   				hc.original = snap.val().text;
   			})
   		});
-  	};
+  	};*/
+}])
+.controller('MashCtrl', ['ClanInfo', function(ClanInfo) {
+	var mc = this;
+	mc.userClan = ClanInfo.userClan[0];
+	mc.oppClan = ClanInfo.oppClan[0];
+	mc.members = mc.oppClan.memberList;
+	mc.badgeUrl = mc.oppClan.badgeUrls.large;
+	mc.userClanName = localStorage.clanName || mc.oppClan.name;
+	console.log(localStorage.clanName ? 'true' : 'false');
+	localStorage.setItem('clanName', mc.userClan.name);
+
+
 }]);

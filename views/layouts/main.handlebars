@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
 	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-	<script>
+	<!-- <script>
 	  // Initialize Firebase
 	  var config = {
 	    apiKey: "AIzaSyA7guuUSqtVPZFDFhrq3Fu-U33lDuEejzM",
@@ -16,12 +16,12 @@
 	    storageBucket: "clashmash-30849.appspot.com",
 	  };
 	  firebase.initializeApp(config);
-	</script>
+	</script> -->
 </head>
-<body ng-app="home">
-
-    {{{body}}}
+<body ng-app="clashmash">
 	
+    <div ng-view></div>
+	{{{body}}}
 
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
@@ -32,6 +32,7 @@
 	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 	<!-- <script src="js/credential.js"></script> -->
 	<script src="js/app.js"></script>
-	<script src="js/lib.js"></script>
+	<script src="js/clanInfo.js"></script>
+	<script src="js/const.js"></script>
 </body>
 </html>

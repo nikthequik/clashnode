@@ -1,0 +1,39 @@
+<div>	
+	<h1 class="title">ClashRoom</h1>
+	<hr>
+	<section class="row">
+		<div id="userClan" class="col-md-4">
+			<img ng-src="{{mc.userClan.badgeUrls.large}}" id="userShield">
+			<div id="userClanInfo">
+				<h1 id="userClanName">
+				{{mc.userClan.name}}
+				</h1>
+				<h3 class='description'>{{mc.userClan.description}}</h3>
+				<h3 class='location'>{{mc.userClan.location.name}}</h3>
+				<h3 class='level'>{{mc.userClan.clanLevel}}</h3>
+				<h3 class='wins'>{{mc.userClan.warWins}}</h3>
+			</div>
+		</div>
+		<div id="chat" class="col-md-4">
+			<ul >
+				<li>First Message</li>
+			</ul>
+		</div>
+		<div id="oppClan" class="col-md-4">
+			<img ng-src="{{mc.oppClan.badgeUrls.large}}" alt="" id="oppShield">
+			<div id="oppClanInfo">
+				<h1 id="oppClanName">
+				{{mc.oppClan.name}}
+				</h1>
+				<h3 class='description'>{{mc.oppClan.description}}</h3>
+				<h3 class='location'>{{mc.oppClan.location.name}}</h3>
+				<h3 class='level'>{{mc.oppClan.clanLevel}}</h3>
+				<h3 class='wins'>{{mc.oppClan.warWins}}</h3>
+			</div>
+		</div>
+	</section>
+	<section class="row">
+		<input id="input" class="col-md-offset-4 col-md-4" type="text">
+	</section>
+	<hr>
+</div>
