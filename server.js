@@ -1,40 +1,16 @@
-//Dependencies
-var express = require('express');
-var router = express.Router();
-var routes = require('./routes');
-var api = require('./public/api');
-var exphbs = require('express-handlebars');
-var bodyParser = require('body-parser');
-/*var socket = require('socket.io-client')('http://localhost');*/
-var http = require('http');
-var https = require('https');
-var path = require('path');
 var socket_io = require('socket.io');
+var http = require('http');
+var express = require('express');
+var https = require('https');
 var app = express();
+app.use(express.static('public'));
+
 var server = http.Server(app);
 var io = socket_io(server);
 
-console.log(io, socket_io);
-//Configuration
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
-app.use(bodyParser());
-/*app.use(express.methodOverride());*/
-/*app.use(app.router);*/
-/*app.use(express.static(path.join(__dirname, 'public')));*/
-app.use(express.static('public'));
-
-//Development only
-/*if ('development' == app.get('env')) {
-    app.use(express.errorHandler());
-}*/
-
-//Routes
-app.get('/', routes.index);
-/*app.get('/socket.io/socket.io.js', routes.socketIO);*/
-app.get('/clashRoom', routes.clashRoom);
+/*app.get('/', function(req, res) {
+    res.render('index');
+});*/
 
 app.get('/clans/:clanID', function(req, res) {
   console.log(req.params.clanID);
@@ -63,17 +39,10 @@ app.get('/clans/:clanID', function(req, res) {
      req.end();
    };
   getClan(encodeURIComponent(req.params.clanID));
-  /*getClan(req.params.clanID);*/
 });
 
-/*io.on('connection', function(socket) {
-  console.log('a user connected');
-  socket.on('enter', function() {
-    console.log('client connected');
-  })
-});*/
-
 io.on('connection', function (socket) {
+
     console.log('Client connected');
 
     socket.once('disconnect', function() {
@@ -81,16 +50,15 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('countdown', io.engine.clientsCount);
     });
 
+
     socket.on('enter', function(count) {
         socket.broadcast.emit('newConnect', io.engine.clientsCount);
         socket.emit('welcome', io.engine.clientsCount);
     });
     socket.on('message', function(message) {
         console.log('Received message:', message);
-        socket.broadcast.emit('message', message);
+        io.emit('message', message);
     });
 });
 
-http.createServer(app).listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
-});
+server.listen(process.env.PORT || 8080);

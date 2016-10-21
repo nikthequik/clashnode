@@ -87,8 +87,13 @@ hr {
 	list-style: none;
 }
 
-.userChatShield {
+.userChatShield, .oppChatShield {
 	max-width: 2em;
+}
+
+.oppMessage {
+	text-align: right;
+	list-style: none;
 }
 
 .firstMessage {

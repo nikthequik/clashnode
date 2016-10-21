@@ -46,15 +46,27 @@ angular.module('clashmash', ['ngRoute'])
 	mc.oppClan = ClanInfo.oppClan[0];
 	mc.members = mc.oppClan.memberList;
 	mc.userClanName = localStorage.clanName || mc.oppClan.name;
-	localStorage.setItem('clanName', mc.userClan.name);
+	/*localStorage.setItem('clanName', mc.userClan.name);*/
 	mc.postMessage = function() {
 
 		var messageText = $('#input').val();
 		console.log(messageText);
-		var message = '<li class="message"><img class="userChatShield" src="' + mc.userClan.badgeUrls.small + '" />' + messageText + '</li>';
-		$('#chat').prepend(message);
-		/*socket.emit('message', messageText);*/
+		socket.emit('message', {
+			cn: mc.userClan.name,
+			m: messageText
+		});
 	};
+	socket.on('message', function(message) {
+		console.log(message.cn);
+		if (message.cn === mc.userClan.name) {
+			var message = '<li class="message"><img class="userChatShield" src="' + mc.userClan.badgeUrls.small + '" />' + message.m + '</li>';
+			$('#chat').prepend(message);
+		} else {
+			var message = '<li class="oppMessage">' + message.m + '<img class="oppChatShield" src="' + mc.oppClan.badgeUrls.small + '" /></li>';
+			$('#chat').prepend(message);
+		}
+		
+	});
 	
 	/*socket.emit('enter', function() {
 		console.log('fire');
