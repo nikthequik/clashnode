@@ -1,4 +1,4 @@
-angular.module('clashmash', ['firebase', 'ngRoute'])
+angular.module('clashmash', ['ngRoute'])
 .config( ['$routeProvider', function($routeProvider){
 	$routeProvider.when('/', {
 		templateUrl: 'views/index.html',
@@ -14,8 +14,8 @@ angular.module('clashmash', ['firebase', 'ngRoute'])
 .controller('HomeCtrl', ['$http', 'ClanInfo', '$location', function($http, ClanInfo, $location){
 	
   	var hc = this;
-	/*var auth = firebase.auth();
-	var provider = new firebase.auth.EmailAuthProvider();*/
+  	hc.userClanID = '2GJPGY2P';
+  	hc.oppClanID = '229LUGO';
 	hc.getClans = function() {
 		var userID = hc.userClanID;
 		if (userID[0] !== '#') {
@@ -33,31 +33,31 @@ angular.module('clashmash', ['firebase', 'ngRoute'])
 			$http.get(oppUrl)
 			.then(function(res){
 				ClanInfo.oppClan.push(res.data);
+				
 				$location.path('/clashRoom');
 			});
 		});
 	};
-  	
-  	/*hc.getFromDb = function() {
-  		auth.signInWithEmailAndPassword(email, password)
-  		.then(function(user){
-  			var clanRef = firebase.database().ref('clans');
-  			clanRef.on('value', function(snap) {
-  				console.log(user);
-  				hc.original = snap.val().text;
-  			})
-  		});
-  	};*/
 }])
 .controller('MashCtrl', ['ClanInfo', function(ClanInfo) {
 	var mc = this;
+	var socket = io();
 	mc.userClan = ClanInfo.userClan[0];
 	mc.oppClan = ClanInfo.oppClan[0];
 	mc.members = mc.oppClan.memberList;
-	mc.badgeUrl = mc.oppClan.badgeUrls.large;
 	mc.userClanName = localStorage.clanName || mc.oppClan.name;
-	console.log(localStorage.clanName ? 'true' : 'false');
 	localStorage.setItem('clanName', mc.userClan.name);
+	mc.postMessage = function() {
 
+		var messageText = $('#input').val();
+		console.log(messageText);
+		var message = '<li class="message"><img class="userChatShield" src="' + mc.userClan.badgeUrls.small + '" />' + messageText + '</li>';
+		$('#chat').prepend(message);
+		/*socket.emit('message', messageText);*/
+	};
+	
+	/*socket.emit('enter', function() {
+		console.log('fire');
+	});*/
 
 }]);

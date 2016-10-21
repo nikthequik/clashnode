@@ -4,17 +4,16 @@ html, body {
 	padding: 1em;
 	background-color: orange;
 	height: 100vh;
+	font-family: georgia, sans-serif;
 }
 
 .title {
 	text-align: center;
 	font-size: 5em;
 	margin: 5vh 0 6vh 0;
-	font-family: georgia;
 }
 
 .what, .why {
-	font-family: georgia;
 	/* padding: 0.6em; */
 	font-weight: 700;
 	font-size: 1.3em;
@@ -52,11 +51,11 @@ html, body {
 	height: 5vh;
 	border: 1px solid #333;
 	width: 80%;
-	font-family: monospace;
+	font-family: monospace, sans-serif;
 }
 
 input[type="submit"] {
-	background-color: royalblue;
+	background-color: darkgreen;
 }
 
 input[type="submit"]:hover {
@@ -80,9 +79,24 @@ hr {
 	border: 2px solid black;
 	height: 61vh;
 	border-radius: 10px;
+	font-family: Acme, sans-serif;
+	position: relative;
 }
 
 #chat ul {
+	list-style: none;
+}
+
+.userChatShield {
+	max-width: 2em;
+}
+
+.firstMessage {
+	text-align: center;
+}
+
+.message {
+	text-align: left;
 	list-style: none;
 }
 
@@ -97,6 +111,7 @@ hr {
 }
 
 #userShield, #oppShield {
-	max-width: 20%;
+	max-width: 30%;
 }
+
 
