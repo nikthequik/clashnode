@@ -1,7 +1,7 @@
 angular.module('clashmash', ['ngRoute'])
 .config( ['$routeProvider', function($routeProvider){
 	$routeProvider.when('/', {
-		templateUrl: 'views/index.html',
+		templateUrl: 'views/signin.html',
 		controller: 'HomeCtrl',
 		controllerAs: 'hc'
 	})
@@ -47,6 +47,8 @@ angular.module('clashmash', ['ngRoute'])
 	mc.members = mc.oppClan.memberList;
 	mc.userClanName = localStorage.clanName || mc.oppClan.name;
 	/*localStorage.setItem('clanName', mc.userClan.name);*/
+	var myEl = angular.element( document.querySelector( '#divID' ) );
+
 	mc.postMessage = function() {
 
 		var messageText = $('#input').val();
@@ -64,12 +66,6 @@ angular.module('clashmash', ['ngRoute'])
 		} else {
 			var message = '<li class="oppMessage">' + message.m + '<img class="oppChatShield" src="' + mc.oppClan.badgeUrls.small + '" /></li>';
 			$('#chat').prepend(message);
-		}
-		
+		}	
 	});
-	
-	/*socket.emit('enter', function() {
-		console.log('fire');
-	});*/
-
 }]);
