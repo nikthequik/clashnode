@@ -1,16 +1,4 @@
-var socket_io = require('socket.io');
-var http = require('http');
-var express = require('express');
-var https = require('https');
-var app = express();
-app.use(express.static('public'));
-
-var server = http.Server(app);
-var io = socket_io(server);
-
-app.get('/clans/:clanID', function(req, res) {
-  console.log(req.params.clanID);
-  var getClan = function(clanID) {
+var getClan = function(clanID) {
      var url = 'api.clashofclans.com';
      var path = '/v1/clans/' + clanID;
      var options = {
@@ -35,22 +23,3 @@ app.get('/clans/:clanID', function(req, res) {
      req.end();
    };
   getClan(encodeURIComponent(req.params.clanID));
-});
-
-io.on('connection', function (socket) {
-
-    console.log('Client connected');
-
-    socket.once('disconnect', function() {
-        console.log('Client disconnected');
-        socket.broadcast.emit('countdown', io.engine.clientsCount);
-    });
-
-
-    socket.on('message', function(message) {
-        console.log('Received message:', message);
-        io.emit('message', message);
-    });
-});
-
-server.listen(process.env.PORT || 8080);

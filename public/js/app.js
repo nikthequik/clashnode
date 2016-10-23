@@ -1,4 +1,4 @@
-angular.module('clashmash', ['ngRoute'])
+angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 .config( ['$routeProvider', function($routeProvider){
 	$routeProvider.when('/', {
 		templateUrl: 'views/signin.html',
@@ -11,7 +11,7 @@ angular.module('clashmash', ['ngRoute'])
 		controllerAs: 'mc'
 	});
 }])
-.controller('HomeCtrl', ['$http', 'ClanInfo', '$location', function($http, ClanInfo, $location){
+.controller('HomeCtrl', ['$http', '$location', function($http, $location){
 	
   	var hc = this;
   	hc.userClanID = '2GJPGY2P';
@@ -24,7 +24,7 @@ angular.module('clashmash', ['ngRoute'])
 		var url = 'clans/' + encodeURIComponent(userID);
 		$http.get(url)
 		.then(function(res) {
-			ClanInfo.userClan.push(res.data);
+			localStorage.setItem('userClan', JSON.stringify(res.data));
 			var oppID = hc.oppClanID;
 			if (oppID[0] !== '#') {
 				oppID = '#' + oppID;
@@ -32,40 +32,42 @@ angular.module('clashmash', ['ngRoute'])
 			var oppUrl = 'clans/' + encodeURIComponent(oppID);
 			$http.get(oppUrl)
 			.then(function(res){
-				ClanInfo.oppClan.push(res.data);
-				
+				localStorage.setItem('oppClan', JSON.stringify(res.data));
+				localStorage.setItem('username', hc.username);
 				$location.path('/clashRoom');
 			});
 		});
 	};
 }])
-.controller('MashCtrl', ['ClanInfo', function(ClanInfo) {
+.controller('MashCtrl', [function() {
 	var mc = this;
+	mc.username = localStorage.getItem('username');
+	var chat = angular.element(document).find('#chat');
 	var socket = io();
-	mc.userClan = ClanInfo.userClan[0];
-	mc.oppClan = ClanInfo.oppClan[0];
+
+	mc.userClan = JSON.parse(localStorage.getItem('userClan'));
+	mc.oppClan = JSON.parse(localStorage.getItem('oppClan'));
 	mc.members = mc.oppClan.memberList;
-	mc.userClanName = localStorage.clanName || mc.oppClan.name;
-	/*localStorage.setItem('clanName', mc.userClan.name);*/
-	var myEl = angular.element( document.querySelector( '#divID' ) );
-
+	
 	mc.postMessage = function() {
-
-		var messageText = $('#input').val();
-		console.log(messageText);
 		socket.emit('message', {
 			cn: mc.userClan.name,
-			m: messageText
+			un: mc.username,
+			m: mc.messageText
 		});
+		mc.messageText = '';
 	};
+
 	socket.on('message', function(message) {
 		console.log(message.cn);
 		if (message.cn === mc.userClan.name) {
-			var message = '<li class="message"><img class="userChatShield" src="' + mc.userClan.badgeUrls.small + '" />' + message.m + '</li>';
-			$('#chat').prepend(message);
+			var message = '<li class="message"><img class="userChatShield" src="' + 
+			mc.userClan.badgeUrls.small + '" />' + '<p class="messageText">' +
+			mc.username + ': ' + message.m + '</p></li>';
+			chat.prepend(message);
 		} else {
-			var message = '<li class="oppMessage">' + message.m + '<img class="oppChatShield" src="' + mc.oppClan.badgeUrls.small + '" /></li>';
-			$('#chat').prepend(message);
+			var message = '<li class="oppMessage">' + message.m + ' - ' + message.un + '<img class="oppChatShield" src="' + mc.oppClan.badgeUrls.small + '" /></li>';
+			chat.prepend(message);
 		}	
 	});
 }]);

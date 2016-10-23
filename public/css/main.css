@@ -4,13 +4,14 @@ html, body {
 	padding: 1em;
 	background-color: orange;
 	height: 100vh;
-	font-family: georgia, sans-serif;
+	font-family: Acme, sans-serif;
 }
 
 .title {
 	text-align: center;
 	font-size: 5em;
 	margin: 5vh 0 6vh 0;
+	font-family: Acme, sans-serif;
 }
 
 .what, .why {
@@ -28,9 +29,6 @@ html, body {
 	text-align: justify;
 	line-height: 1.6em;
 	letter-spacing: 1.4px;
-}
-
-.why ol {
 }
 
 .why ol li {
@@ -72,6 +70,10 @@ hr {
 	border-radius: 1px;
 }
 
+#clashRoom {
+	font-family: Acme, Monospace, sans-serif;	
+}
+
 #chat {
 	text-align: center;
 	box-shadow: 2px 2px 2px black;
@@ -81,6 +83,8 @@ hr {
 	border-radius: 10px;
 	font-family: Acme, sans-serif;
 	position: relative;
+	overflow-y: scroll;
+	font-family: Righteous, Monospace, sans-serif;
 }
 
 #chat ul {
@@ -98,6 +102,7 @@ hr {
 
 .firstMessage {
 	text-align: center;
+	font-size: 2em;
 }
 
 .message {
@@ -105,10 +110,26 @@ hr {
 	list-style: none;
 }
 
+.messageText {
+	max-width: 10em;
+	display: inline;
+}
+
+#userClanInfo h1, h2, h3{
+	font-family: Acme, Monospace, sans-serif;
+}
+
+#oppClanInfo h1, h2, h3 {
+	font-family: Acme, Monospace, sans-serif;
+}
+
 #input {
 	border: 2px solid black;
 	border-radius: 8px;
 	margin-top: 1vh;
+	width: 82%;
+	box-shadow: 2px 2px 2px black;
+	font-size: 2em;
 }
 
 #userClan, #oppClan {
@@ -118,5 +139,28 @@ hr {
 #userShield, #oppShield {
 	max-width: 30%;
 }
+
+.attLabel {
+	text-decoration: underline;
+}
+
+.description {
+	min-height: 15vh;
+	text-indent: 2em;
+}
+
+#masher {
+	margin: 1vh 0 0 1vh;
+	width: 16%;
+	border-radius: 8px;
+	background-color: #333;
+	color: #fff;
+	font-size: 2em;
+}
+
+
+
+
+
 
 
