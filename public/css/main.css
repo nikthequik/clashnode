@@ -9,8 +9,8 @@ html, body {
 
 .title {
 	text-align: center;
-	font-size: 5em;
-	margin: 5vh 0 6vh 0;
+	font-size: 6em;
+	margin: 4vh 0 5vh 0;
 	font-family: Acme, sans-serif;
 }
 
@@ -84,6 +84,7 @@ hr {
 	font-family: Acme, sans-serif;
 	position: relative;
 	overflow-y: scroll;
+	overflow-x: hidden;
 	font-family: Righteous, Monospace, sans-serif;
 }
 
@@ -113,6 +114,7 @@ hr {
 .messageText {
 	max-width: 10em;
 	display: inline;
+	word-wrap: break-word;
 }
 
 #userClanInfo h1, h2, h3{

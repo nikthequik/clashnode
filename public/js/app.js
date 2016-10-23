@@ -42,7 +42,7 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 .controller('MashCtrl', [function() {
 	var mc = this;
 	mc.username = localStorage.getItem('username');
-	var chat = angular.element(document).find('#chat');
+	var chat = angular.element(document.querySelector('#chat'));
 	var socket = io();
 
 	mc.userClan = JSON.parse(localStorage.getItem('userClan'));
@@ -59,15 +59,14 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 	};
 
 	socket.on('message', function(message) {
-		console.log(message.cn);
 		if (message.cn === mc.userClan.name) {
-			var message = '<li class="message"><img class="userChatShield" src="' + 
+			var messageHtml = '<li class="message"><img class="userChatShield" src="' + 
 			mc.userClan.badgeUrls.small + '" />' + '<p class="messageText">' +
 			mc.username + ': ' + message.m + '</p></li>';
-			chat.prepend(message);
+			chat.prepend(messageHtml);
 		} else {
-			var message = '<li class="oppMessage">' + message.m + ' - ' + message.un + '<img class="oppChatShield" src="' + mc.oppClan.badgeUrls.small + '" /></li>';
-			chat.prepend(message);
+			var messageHtml = '<li class="oppMessage">' + message.m + ' - ' + message.un + '<img class="oppChatShield" src="' + mc.oppClan.badgeUrls.small + '" /></li>';
+			chat.prepend(messageHtml);
 		}	
 	});
 }]);
