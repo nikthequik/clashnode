@@ -1,5 +1,3 @@
-/* font-family: 'Rock Salt', cursive;
-font-family: 'Coiny', cursive; */
 html, body {
 	padding: 1em;
 	background-color: orange;
@@ -61,17 +59,9 @@ input[type="submit"]:hover {
 	color: white;
 }
 
-.signin {
-	/* padding: 1.5em 0em 0em 0em; */
-}
-
 hr {
 	border: 1px solid #333;
 	border-radius: 1px;
-}
-
-#clashRoom {
-	font-family: Acme, Monospace, sans-serif;	
 }
 
 #chat {
