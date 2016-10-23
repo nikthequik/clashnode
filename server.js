@@ -24,7 +24,7 @@ app.get('/clans/:clanID', function(req, res) {
         method: 'GET'
       };
       var str = '';
-      var req = https.request(options, function(response) {
+      var clanRequest = https.request(options, function(response) {
         console.log(response.statusMessage, response.statusCode);
         response.on('data', function(res) {
           str += res;
@@ -33,7 +33,7 @@ app.get('/clans/:clanID', function(req, res) {
           res.send(str);
         });
       });
-      req.end();
+      clanRequest.end();
     };
   getClan(encodeURIComponent(req.params.clanID));
 });
