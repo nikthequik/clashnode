@@ -1,4 +1,4 @@
-﻿### ClashMash - v0.1
+### ClashMash - v0.1
 
 ClashMash is an application that allows users of the popular mobile game Clash of Clans to chat with the clan they are currently at war with.
 
