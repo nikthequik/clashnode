@@ -13,26 +13,26 @@ html, body {
 }
 
 .what, .why {
-	/* padding: 0.6em; */
 	font-weight: 700;
-	font-size: 1.3em;
 	text-align: center;
 	border-radius: 3px;
 	height: auto;
 }
 
 .what {
-	font-size: 1.2em;
+	font-size: 2em;
 	text-indent: 3em;
 	text-align: justify;
 	line-height: 1.6em;
 	letter-spacing: 1.4px;
+	margin-top: 1em;
 }
 
 .why ol li {
 	margin-top: 1em;
 	text-align: left;
 	padding: 0 0 0 1vw;
+	font-size: 3em;
 }
 
 #join {
@@ -41,17 +41,24 @@ html, body {
 
 #join input {
 	text-align: center;
-	margin: 0 0 2vh 0;
+	margin: 0 0 1vh 0;
 	font-size: 1.1em;
 	border-radius: 3px;
 	height: 5vh;
 	border: 1px solid #333;
 	width: 80%;
-	font-family: monospace, sans-serif;
+	font-family: Righteous, monospace, sans-serif;
 }
 
-input[type="submit"] {
+#join label {
+	display: block;
+	margin: 0;
+	font-size: 1.3em;
+}
+
+#join input[type="submit"] {
 	background-color: darkgreen;
+	font-size: 2em;
 }
 
 input[type="submit"]:hover {
