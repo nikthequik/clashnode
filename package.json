@@ -7,7 +7,8 @@
   "description": "Where clans can duke it out during war.",
   "main": "app.js",
   "scripts": {
-    "start": "bower install"
+    "start": "node server.js",
+    "postinstall": "bower install"
   },
   "author": {
     "name": "NB",
