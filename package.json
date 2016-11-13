@@ -1,8 +1,14 @@
 {
   "name": "clash.mash",
   "version": "0.0.0",
+  "engines": {
+    "node": "4.4.4"
+  },
   "description": "Where clans can duke it out during war.",
   "main": "app.js",
+  "scripts": {
+    "start": "bower install"
+  },
   "author": {
     "name": "NB",
     "email": "quik.the.nick@gmail.com"
