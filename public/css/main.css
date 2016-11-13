@@ -59,6 +59,7 @@ html, body {
 #join input[type="submit"] {
 	background-color: darkgreen;
 	font-size: 2em;
+	height: auto;
 }
 
 input[type="submit"]:hover {
