@@ -5,36 +5,51 @@ html, body {
 	font-family: Acme, sans-serif;
 }
 
+#banner {
+	text-align: center;
+}
+
 .title {
 	text-align: center;
 	font-size: 6em;
-	margin: 4vh 0 5vh 0;
+	vertical-align: middle;
+	margin: 2vh 3vw;
+	display: inline-block;
 	font-family: Acme, sans-serif;
+	font-weight: 700;
+}
+
+.exploder {
+	max-width: 14em;
+	position: relative;
 }
 
 #introduction {
-	height: 80vh;
+	height: auto;
 }
 
 .what, .why {
 	font-weight: 700;
 	text-align: center;
 	border-radius: 3px;
-	height: auto;
+	padding: 1em;
 }
 
 .what {
-	font-size: 2em;
+	font-size: 2.6em;
 	text-indent: 3em;
 	text-align: justify;
 	line-height: 1.6em;
 	letter-spacing: 1.4px;
-	margin-top: 1em;
+	margin: .5em 0 1em 0;
+}
+
+.why ol {
+	text-align: center;
 }
 
 .why ol li {
 	margin-top: 1em;
-	text-align: left;
 	padding: 0 0 0 1vw;
 	font-size: 3em;
 }
@@ -57,7 +72,7 @@ html, body {
 #join label {
 	display: block;
 	margin: 0;
-	font-size: 1.3em;
+	font-size: 2.4em;
 }
 
 #join input[type="submit"] {
