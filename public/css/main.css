@@ -1,6 +1,6 @@
 html, body {
 	padding: 1em;
-	background-color: orange;
+	background-image: url("../img/background.png");
 	height: 100vh;
 	font-family: Acme, sans-serif;
 }
@@ -10,6 +10,10 @@ html, body {
 	font-size: 6em;
 	margin: 4vh 0 5vh 0;
 	font-family: Acme, sans-serif;
+}
+
+#introduction {
+	height: 80vh;
 }
 
 .what, .why {

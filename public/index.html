@@ -9,7 +9,10 @@
 </head>
 <body ng-app="clashmash">
 	
-    <div ng-view></div>
+	<div id="view-container">
+		<div ng-view></div>
+	</div>
+    
 	
 	<script src="socket.io/socket.io.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
