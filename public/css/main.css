@@ -96,7 +96,6 @@ hr {
 	border: 2px solid black;
 	height: 61vh;
 	border-radius: 10px;
-	font-family: Acme, sans-serif;
 	position: relative;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -105,6 +104,7 @@ hr {
 
 #chat ul {
 	list-style: none;
+	padding: 0;
 }
 
 .userChatShield, .oppChatShield {
