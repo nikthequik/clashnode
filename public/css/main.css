@@ -20,7 +20,7 @@ html, body {
 }
 
 .exploder {
-	max-width: 14em;
+	max-width: 96px;
 	position: relative;
 }
 
@@ -36,9 +36,9 @@ html, body {
 }
 
 .what {
-	font-size: 2.6em;
-	text-indent: 3em;
-	text-align: justify;
+	font-size: 2em;
+	text-indent: 2em;
+	/* text-align: justify; */
 	margin: .5em 0 1em 0;
 }
 
