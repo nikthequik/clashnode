@@ -95,6 +95,7 @@ hr {
 	background-color: #FFF;
 	border: 2px solid black;
 	height: 61vh;
+	padding: 0.5em;
 	border-radius: 10px;
 	position: relative;
 	overflow-y: scroll;
@@ -145,8 +146,9 @@ hr {
 	border-radius: 8px;
 	margin-top: 1vh;
 	width: 78%;
+	height: 2.5em;
 	box-shadow: 2px 2px 2px black;
-	font-size: 2em;
+	font-size: 1.5em;
 }
 
 #userClan, #oppClan {
@@ -171,6 +173,7 @@ hr {
 	width: 19%;
 	border-radius: 8px;
 	background-color: #333;
+	height: 2em;
 	color: #fff;
 	font-size: 2em;
 }
