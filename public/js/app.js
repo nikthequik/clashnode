@@ -14,8 +14,7 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 .controller('HomeCtrl', ['$http', '$location', function($http, $location){
 	
   	var hc = this;
-  	hc.userClanID = '2GJPGY2P';
-  	hc.oppClanID = '229LUGO';
+  	
 	hc.getClans = function() {
 		var userID = hc.userClanID;
 		if (userID[0] !== '#') {
