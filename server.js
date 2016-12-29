@@ -1,4 +1,4 @@
-var socket_io = require('node_modules/socket.io');
+var socket_io = require('socket.io');
 var http = require('http');
 var https = require('https');
 var express = require('express');
