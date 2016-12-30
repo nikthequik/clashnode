@@ -14,7 +14,7 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 .controller('HomeCtrl', ['$http', '$location', function($http, $location){
 	
   	var hc = this;
-  	
+  	hc.clanNotFound = false;
 	hc.getClans = function() {
 		var userID = hc.userClanID;
 		if (userID[0] !== '#') {
@@ -31,9 +31,18 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 			var oppUrl = 'clans/' + encodeURIComponent(oppID);
 			$http.get(oppUrl)
 			.then(function(res){
-				localStorage.setItem('oppClan', JSON.stringify(res.data));
-				localStorage.setItem('username', hc.username);
-				$location.path('/clashRoom');
+				console.log(res);
+				if (res.data.reason == "notFound") {
+					hc.clanNotFound = true;
+				} else {
+					localStorage.setItem('oppClan', JSON.stringify(res.data));
+					localStorage.setItem('username', hc.username);
+					$location.path('/clashRoom');
+				}
+				
+			}, function(err){
+				console.log(err);
+				$location.path('/');
 			});
 		});
 	};

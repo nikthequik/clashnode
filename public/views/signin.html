@@ -5,11 +5,12 @@
 		<h1 class="title">Clash Mash</h1>
 		<img class="exploder" src="img/exploder.gif" alt="">
 	</section>
-
 	<hr>
-
 	<section id="introduction" class="row">
-		<article class="what col-md-4 col-sm-12">Clash Mash allows clans to interact with one another while at war. &nbsp;Think that attack was awesome? Let your opponent know. &nbsp;Looking to swap members? &nbsp;Use Clash Mash to facilitate the migration. &nbsp;Clash Mash allows clashers to communicate in ways they've never been able to in the past.</article>
+		<article class="what col-md-4 col-sm-12">Clash Mash allows clans to interact with one another while at war. &nbsp;
+		Think that attack was awesome? Let your opponent know. &nbsp;
+		Looking to swap members? &nbsp;Use Clash Mash to facilitate the migration. &nbsp;
+		Clash Mash allows clashers to communicate in ways they've never been able to in the past.</article>
 		<article class="signin col-md-4 col-sm-12">
 			<form id="join" ng-submit="hc.getClans()" name="hc.join">
 				<label for="userClanID">Your Clan ID</label>
@@ -22,7 +23,9 @@
 				<input id="pword" type="password" ng-model="hc.pword" placeholder="Password" required>
 				<input type="submit"  value="Ready To Mash">
 			</form>
+			<div ng-show="hc.clanNotFound" class="error">Clan ID was not found!</div>
 		</article>
+		
 		<article class="why col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
 			<ol>
 				<li>Enter Clan IDs</li>
