@@ -30,14 +30,14 @@ html, body {
 
 .what, .why {
 	font-weight: 700;
-	text-align: center;
+	text-align: left;
 	border-radius: 3px;
 	padding: 1em;
 }
 
 .what {
 	font-size: 2em;
-	text-indent: 2em;
+	text-indent: 1.5em;
 	margin: .5em 0 1em 0;
 }
 
@@ -88,6 +88,24 @@ input[type="submit"]:hover {
 	text-align: center;
 	font-size: 1.5em;
 	color: red;
+}
+
+#quiklink {
+	font-size: 2em;
+	padding: 0.5em 0 .5em 0;
+	text-align: center;
+}
+
+#quiklink a {
+	color: #333;
+}
+
+#social {
+	text-align: center;
+}
+
+#fbook {
+	margin: 0 0 1em 0;
 }
 
 hr {
@@ -184,9 +202,8 @@ hr {
 	font-size: 2em;
 }
 
-
-
-
-
-
-
+@media screen and (max-width: 800px) {
+	#join label {
+		font-size: 3em;
+	}
+}

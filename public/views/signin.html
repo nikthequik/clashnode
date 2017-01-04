@@ -1,4 +1,3 @@
-
 <div>
 	<section id="banner">
 		<img class="exploder" src="img/exploder.gif" alt="">
@@ -7,25 +6,28 @@
 	</section>
 	<hr>
 	<section id="introduction" class="row">
-		<article class="what col-md-4 col-sm-12">Clash Mash allows clans to interact with one another while at war. &nbsp;
-		Think that attack was awesome? Let your opponent know. &nbsp;
-		Looking to swap members? &nbsp;Use Clash Mash to facilitate the migration. &nbsp;
-		Clash Mash allows clashers to communicate in ways they've never been able to in the past.</article>
+		<article class="what col-md-4 col-sm-12">
+			<p>
+				Ever wanted to communicate with the clan you are at war with? &nbsp; Clash Mash was built to allow warring clans to interact in ways they've never been able to before.
+			</p> 
+			<p>
+				Think that attack was awesome? Let your opponent
+				know. &nbsp; Looking to swap members? &nbsp;Use Clash Mash to facilitate the migration.
+			</p>
+		</article>
 		<article class="signin col-md-4 col-sm-12">
 			<form id="join" ng-submit="hc.getClans()" name="hc.join">
 				<label for="userClanID">Your Clan ID</label>
 				<input id="userClanID" type="text" ng-model="hc.userClanID" placeholder="Your Clan ID" required>
 				<label for="oppClanId">Opponent Clan ID</label>
 				<input id="oppClanId" type="text" ng-model="hc.oppClanID" placeholder="Opponent Clan ID" required>
-				<label for="username">Username</label>
-				<input id="username" type="text" ng-model="hc.username" placeholder="Username" required>
-				<label for="pword">Password</label>
-				<input id="pword" type="password" ng-model="hc.pword" placeholder="Password" required>
-				<input type="submit"  value="Ready To Mash">
+				<label for="username">Your Clash Name</label>
+				<input id="username" type="text" ng-model="hc.username" placeholder="Clash Name" required>
+				<input type="submit" value="Ready To Mash">
 			</form>
-			<div ng-show="hc.clanNotFound" class="error">Clan ID was not found!</div>
+			<div ng-show="hc.clanNotFound" class="error">{{hc.whichClanNotFound}} Clan ID not found!</div>
 		</article>
-		
+
 		<article class="why col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
 			<ol>
 				<li>Enter Clan IDs</li>
@@ -34,10 +36,15 @@
 			</ol>
 		</article>
 	</section>
-
 	<hr>
+	<section id="footer" class="row">
+		<article class="col-md-3 col-md-offset-2" id="social">
+			<a href="https://www.facebook.com/clashmash/"><img id="fbook" src="img/facebook.png" alt="ClashMash"></a>
+		</article>
+		<article class="col-md-3 col-md-offset-2" id="quiklink">
+			<a href="http://www.nikthequik.com">A QuikStop Production</a>
+		</article>
+	</section>
+
+	
 </div>
-
-
-
-
