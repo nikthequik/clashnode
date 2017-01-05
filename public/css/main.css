@@ -28,6 +28,14 @@ html, body {
 	height: auto;
 }
 
+#assets {
+	font-size: 1em;
+	list-style: none;
+	text-align: center;
+	position: relative;
+	left: -1em;
+}
+
 .what, .why {
 	font-weight: 700;
 	text-align: left;
@@ -206,4 +214,39 @@ hr {
 	#join label {
 		font-size: 3em;
 	}
+}
+
+@media screen and (max-width: 662px) {
+	.title {
+		font-size: 3.2em;
+	}
+
+	.exploder {
+		max-width: 48px;
+	}
+}
+
+@media screen and (max-width: 440px) {
+	.title {
+		font-size: 3em;
+	}
+
+	.exploder {
+		max-width: 42px;
+	}
+
+	#assets {
+		font-size: 1em;
+		left: -2em;
+	}
+
+	#join input[type="submit"] {
+		font-size: 1.8em;
+	}
+
+	.what {
+		font-size: 1.3em;
+	}
+
+	
 }
