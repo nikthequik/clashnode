@@ -1,6 +1,8 @@
 var socket_io = require('socket.io');
+var mongoose = require('mongoose');
 var http = require('http');
 var https = require('https');
+var db = require('./db');
 var express = require('express');
 var app = express();
 app.use(express.static('public'));

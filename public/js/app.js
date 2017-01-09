@@ -73,7 +73,8 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 		socket.emit('message', {
 			cn: mc.userClan.name,
 			un: mc.username,
-			m: mc.messageText
+			m: mc.messageText,
+			d: new Date()
 		});
 		mc.messageText = '';
 	};
