@@ -2,13 +2,48 @@ var socket_io = require('socket.io');
 var mongoose = require('mongoose');
 var http = require('http');
 var https = require('https');
-var db = require('./db');
+var dbsetup = require('./db');
 var express = require('express');
+var credential = require('./credential.js');
 var app = express();
 app.use(express.static('public'));
 
 var server = http.Server(app);
 var io = socket_io(server);
+
+var un = credential.userName;
+var pw = credential.pWord;
+
+
+//Connect to MongoDB
+
+var Schema = mongoose.Schema;
+var messageSchema = new Schema({
+  message: String,
+  createdDate: { type: Date, default: Date.now },
+  author: String
+});
+
+var roomSchema = new Schema({
+  roomID: String,
+  clanID: [String],
+  created: { type: Date, default: Date.now },
+  history: [Message]
+});
+
+var Room = mongoose.model('Room', roomSchema);
+
+var dburl = 'mongodb://' + un + ':' + pw + '@ds157258.mlab.com:57258/messages';
+
+
+mongoose.connect(dburl);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('We\'re, connected!');
+});
+
+//Routes
 
 app.get('/clans/:clanID', function(req, res) {
   console.log(req.params.clanID);
@@ -38,6 +73,8 @@ app.get('/clans/:clanID', function(req, res) {
     };
   getClan(encodeURIComponent(req.params.clanID));
 });
+
+//Socket IO
 
 io.on('connection', function (socket) {
 

@@ -9,6 +9,14 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 		templateUrl: 'views/clashRoom.html',
 		controller: 'MashCtrl',
 		controllerAs: 'mc'
+	})
+	.when('/claninfo', {
+		templateUrl: 'views/clanInfo.html',
+		controller: 'ClanCtrl',
+		controllerAs: 'cc'
+	})
+	.otherwise({
+		templateUrl: 'views/signin.html'
 	});
 }])
 .controller('HomeCtrl', ['$http', '$location', function($http, $location){
@@ -90,4 +98,9 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 			chat.prepend(messageHtml);
 		}	
 	});
+}])
+.controller('ClanCtrl', [function() {
+	var cc = this;
+	cc.userClan = JSON.parse(localStorage.getItem('userClan'));
+	
 }]);
