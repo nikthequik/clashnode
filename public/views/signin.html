@@ -1,5 +1,4 @@
 <div>
-
 	<section id="introduction" class="row">
 		<article class="what col-md-4 col-sm-12">
 			<p>
@@ -12,16 +11,12 @@
 			</ul>
 		</article>
 		<article class="signin col-md-4 col-sm-12">
-			<form id="join" ng-submit="hc.getClans()" name="hc.join">
-				<label for="userClanID">Your Clan ID</label>
-				<input id="userClanID" type="text" ng-model="hc.userClanID" placeholder="Your Clan ID" required>
-				<label for="oppClanId">Opponent Clan ID</label>
-				<input id="oppClanId" type="text" ng-model="hc.oppClanID" placeholder="Opponent Clan ID" required>
-				<label for="username">Your Clash Name</label>
-				<input id="username" type="text" ng-model="hc.username" placeholder="Clash Name" required>
+			<form id="join" ng-submit="wc.getUserInfo()" name="wc.join">
+				<label for="userClanID">Your Player ID</label>
+				<input id="userClanID" type="text" ng-model="wc.userClanID" placeholder="Your Clan ID" required>
 				<input type="submit" value="Ready To Mash">
 			</form>
-			<div ng-show="hc.clanNotFound" class="error">{{hc.whichClanNotFound}} Clan ID not found!</div>
+			<div ng-show="wc.playerNotFound" class="error">{{wc.whichClanNotFound}} Player ID not found!</div>
 		</article>
 
 		<article class="why col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">

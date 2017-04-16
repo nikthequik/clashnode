@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Clash Mash</title>
 	<meta name="viewport" content="width=device-width" />
-	<link href="https://fonts.googleapis.com/css?family=Acme|Righteous" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Acme|Righteous|Dosis:800|Alegreya+Sans+SC:800|Signika+Negative:700" rel="stylesheet">
 	<link href="img/favicon.ico" rel="icon" type="image/x-icon" />
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/css/main.css">
@@ -12,11 +12,8 @@
 
 <body ng-app="clashmash">
 	<section id="banner">
-		<img class="exploder" src="img/exploder.gif" alt="">
 		<h1 class="title">Clash Mash</h1>
-		<img class="exploder" src="img/exploder.gif" alt="">
 	</section>
-	<hr>
 	<div id="view-container">
 		<div ng-view></div>
 	</div>
@@ -36,16 +33,22 @@
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
 		ga('create', 'UA-74214752-2', 'auto');
 		ga('send', 'pageview');
 	</script>
 	
 	<script src="socket.io/socket.io.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
+		<!--Dependencies-->
 	<script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.js"></script>
 	<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+		<!--Modules-->
 	<script src="js/app.js"></script>
+		<!--Controllers-->
+	<script src="js/controllers/welcome.ctrl.js"></script>
+	<script src="js/controllers/home.ctrl.js"></script>
+	<script src="js/controllers/mash.ctrl.js"></script>
+	<script src="js/controllers/clan.ctrl.js"></script>
 </body>
 </html>

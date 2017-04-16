@@ -1,29 +1,37 @@
 html, body {
-	padding: 1em;
-	background-image: url("../img/background.png");
+	padding: 3em 1em 0em 1em;
+	/* background-image: url("../img/background.png"); */
+	background-color: #ddd;
 	height: 100vh;
-	font-family: Acme, sans-serif;
+	font-family: 'Alegreya Sans', monospace, sans-serif;
 }
 
 #banner {
-	text-align: center;
 	background-color: orange;
-	border: 3px solid black;
-	border-radius: 10px;
+	position: fixed;
+	z-index: 100;
+	right: 0;
+	top: 0;
+	box-shadow: #333 0px 1px 5px;
+	left: 0;
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 3em;
 }
 
 .title {
 	text-align: center;
-	font-size: 6em;
+	font-size: 2em;
 	vertical-align: middle;
-	margin: 2vh 3vw;
+	margin: 6px 0.4em;
 	display: inline-block;
-	font-family: Acme, sans-serif;
+	font-family: 'Dosis', monospace, sans-serif;
 	font-weight: 700;
 }
 
 .exploder {
-	max-width: 96px;
+	max-width: 33px;
+	vertical-align: text-bottom;
 	position: relative;
 }
 
@@ -47,7 +55,7 @@ html, body {
 }
 
 .what {
-	font-size: 2em;
+	font-size: 1.4em;
 	text-indent: 1.5em;
 	margin: -0.5em 0 1em 0;
 }
@@ -59,7 +67,7 @@ html, body {
 .why ol li {
 	margin: 0.4em 0 0 0;
 	padding: 0 0 0 1vw;
-	font-size: 2.9em;
+	font-size: 1.8em;
 }
 
 #join {
@@ -86,8 +94,8 @@ html, body {
 #join input[type="submit"] {
 	margin: 2vh 0 0 0;
 	background-color: orange;
-	box-shadow: 0px 2px 6px 3px #333;
-	font-size: 2em;
+	box-shadow: 2px 3px 5px 1px #333;
+	font-size: 1.2em;
 	height: auto;
 }
 
@@ -103,7 +111,7 @@ input[type="submit"]:hover {
 }
 
 #quiklink {
-	font-size: 2em;
+	font-size: 1.4em;
 	padding: 0.5em 0 .5em 0;
 	text-align: center;
 }
@@ -117,7 +125,8 @@ input[type="submit"]:hover {
 }
 
 #fbook {
-	margin: 0 0 0 0;
+	margin: 0 0 1em 0;
+	width: 3.2em;
 }
 
 hr {
@@ -137,7 +146,7 @@ hr {
 	position: relative;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	font-family: Righteous, Monospace, sans-serif;
+	font-family: 'Signika Negative', Monospace, sans-serif;
 }
 
 #chat ul {
@@ -171,11 +180,11 @@ hr {
 }
 
 #userClanInfo h1, h2, h3{
-	font-family: Acme, Monospace, sans-serif;
+	font-family: Alegreya Sans, Monospace, sans-serif;
 }
 
 #oppClanInfo h1, h2, h3 {
-	font-family: Acme, Monospace, sans-serif;
+	font-family: Alegreya Sans, Monospace, sans-serif;
 }
 
 #input {
@@ -248,7 +257,8 @@ hr {
 
 @media screen and (max-width: 440px) {
 	.title {
-		font-size: 2.6em;
+		font-size: 2.4em;
+		margin: 2px 0 0 4px;
 	}
 
 	.exploder {
