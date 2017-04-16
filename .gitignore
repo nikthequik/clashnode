@@ -1,7 +1,7 @@
 node_modules/
-public/node_modules
 public/bower_components
 public/js/credential.js
 *Obj.js
 npm-debug.log
 .DS_Store
+credential.js

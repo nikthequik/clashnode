@@ -1,0 +1,20 @@
+<nav>
+    <a ng-href="#info"></a>
+    <a ng-href="#members"></a>
+    <a ng-href="#user"></a>
+</nav>
+<div id="" class="col-md-4">
+    <div id="clanInfo">
+        <h1 class="userClanName">{{mc.userClan.name}}</h1>
+        <img ng-src="{{mc.userClan.badgeUrls.large}}" id="userShield">
+        <div class="clanDescription">
+            <h3 class="description">{{mc.userClan.description}}</h3>
+            <h2 class="attLabel country">Country</h2>
+            <h3 class="location">{{mc.userClan.location.name}}</h3>
+            <h2 class="attLabel level">Clan Level</h2>
+            <h3 class="level">{{mc.userClan.clanLevel}}</h3>
+            <h2 class="attLabel warWins">War Wins</h2>
+            <h3 class="wins">{{mc.userClan.warWins}}</h3>
+        </div>
+    </div>
+</div>

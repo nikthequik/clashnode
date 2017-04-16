@@ -3,7 +3,6 @@ var http = require('http');
 var https = require('https');
 var express = require('express');
 var app = express();
-/*var clashAPI = require('./clashAPI');*/
 app.use(express.static('public'));
 
 var server = http.Server(app);
@@ -19,7 +18,7 @@ app.get('/clans/:clanID', function(req, res) {
         path: path,
         headers: {
           accept: 'application/json',
-          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjZmZGMwZjk1LWE1MjAtNDY4Mi04MDMzLTdmNDljMDU1NWVmMCIsImlhdCI6MTQ3Njc2MjIzNCwic3ViIjoiZGV2ZWxvcGVyL2MxMDc1MDEzLWU2NmUtNzQ0Ni1lNjFjLWExODFhNTg5MGE5MSIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjY3LjE2NC4xNjUuMjA5Il0sInR5cGUiOiJjbGllbnQifV19.Kir-M4YvNoxGqcA_Ao5S7iive_tL-nr7_iLJoeVoGc9Lnyda6pTbc00UTWpyjR5VZa8Q7x01mNlte_hYh5Qm9A'
+          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijk1NjMxYzY2LWMyMjItNDJmMi1hY2MyLTgwODhhNWYyMjIzYyIsImlhdCI6MTQ4MjM4Mjk5Miwic3ViIjoiZGV2ZWxvcGVyL2MxMDc1MDEzLWU2NmUtNzQ0Ni1lNjFjLWExODFhNTg5MGE5MSIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjEyOS4xMjEuMTQzLjE0NSIsIjY3LjE2NC4xNjUuMjA5Il0sInR5cGUiOiJjbGllbnQifV19.1BriqMNbnVZ2FZcmVyc_8kyZNalQqaagAEF3Ends2SX0leA_y0B-HuH3eswRigcb-IJjymAyui_4tCzO3xy4Cg'
         },
         method: 'GET'
       };
