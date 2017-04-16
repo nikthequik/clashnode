@@ -1,10 +1,8 @@
 var socket_io = require('socket.io');
-//var mysql = require('./js/data/mysql');
+var mongoose = require('./js/data/mongoose');
 var http = require('http');
 var https = require('https');
-var dbsetup = require('./js/db');
 var express = require('express');
-var credential = require('./js/credential');
 var clashAPI = require('./js/clashAPI');
 
 var app = express();
@@ -12,9 +10,6 @@ app.use(express.static('public'));
 
 var server = http.Server(app);
 var io = socket_io(server);
-
-var un = credential.userName;
-var pw = credential.pWord;
 
 //Endpoints
 

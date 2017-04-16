@@ -1,9 +1,9 @@
 angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 .config( ['$routeProvider', function($routeProvider){
 	$routeProvider.when('/', {
-		templateUrl: 'views/signin.html',
+		templateUrl: 'views/welcome.html',
 		controller: 'WelcomeCtrl',
-		controllerAs: 'hc'
+		controllerAs: 'wc'
 	})
 	.when('/home', {
 		templateUrl: 'views/home.html',
@@ -21,6 +21,6 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 		controllerAs: 'cc'
 	})
 	.otherwise({
-		templateUrl: 'views/signin.html'
+		templateUrl: 'views/welcome.html'
 	});
 }]);

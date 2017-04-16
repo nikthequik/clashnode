@@ -1,0 +1,18 @@
+<div id='playerInfo'>
+    <div id='playerTitle'>
+        <h1>{{hc.userInfo.name}}</h1>
+        <sub>{{hc.userInfo.tag}}</sub>
+    </div>
+    <div>
+        <h3><img class='playerClanShield' ng-src='{{hc.userInfo.clan.badgeUrls.small}}' alt="">{{hc.userInfo.clan.name}}<img class='playerClanShield' ng-src='{{hc.userInfo.clan.badgeUrls.small}}' alt=""></h3>
+        <h4>Town Hall {{hc.userInfo.townHallLevel}}</h4>
+        <h4>Player Level: {{hc.userInfo.expLevel}}</h4>
+        <h4>Trophies: {{hc.userInfo.trophies}}</h4>
+        <h4>War Stars: {{hc.userInfo.warStars}}</h4>
+        <h4>Clan Rank: {{hc.userInfo.role | uppercase}}</h4>
+        <h4>Donations: {{hc.userInfo.donations}}</h4>
+        <h4>Attack Wins: {{hc.userInfo.attackWins}}</h4>
+        <h4>Defense Wins: {{hc.userInfo.defenseWins}}</h4>
+    </div>
+    
+</div>

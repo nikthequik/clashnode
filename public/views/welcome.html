@@ -12,17 +12,17 @@
 		</article>
 		<article class="signin col-md-4 col-sm-12">
 			<form id="join" ng-submit="wc.getUserInfo()" name="wc.join">
-				<label for="userClanID">Your Player ID</label>
-				<input id="userClanID" type="text" ng-model="wc.userClanID" placeholder="Your Clan ID" required>
+				<label for="userClanID">Player ID</label>
+				<input id="userClanID" type="text" ng-model="wc.userClanID" placeholder="Player ID" required>
 				<input type="submit" value="Ready To Mash">
 			</form>
-			<div ng-show="wc.playerNotFound" class="error">{{wc.whichClanNotFound}} Player ID not found!</div>
+			<div ng-show="wc.playerNotFound" class="error">{{wc.playerNotFound}} Player ID not found!</div>
+			<p>Your Player ID can be found directly below your name in the My Profile tab while in-game.</p>
 		</article>
 
 		<article class="why col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
 			<ol>
-				<li>Enter Clan IDs</li>
-				<li>Get Code</li>
+				<li>Enter ID</li>
 				<li>Clash Mash</li>
 			</ol>
 		</article>

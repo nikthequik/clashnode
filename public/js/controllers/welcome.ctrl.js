@@ -7,7 +7,7 @@ var app = angular.module('clashmash')
 		if (userID[0] !== '#') {
 			userID = '#' + userID;
 		}
-		var url = 'clans/' + encodeURIComponent(userID);
+		var url = 'player/' + encodeURIComponent(userID);
 		$http.get(url)
 		.then(function(res) {
 			console.log(JSON.stringify(res.data));
@@ -15,8 +15,8 @@ var app = angular.module('clashmash')
 				wc.playerNotFound = true;
 			} else {
 				wc.playerInfo = res.data;
-				localStorage.setItem('playerInfo', JSON.stringify(wc.playerInfo));
-				$location.path('/clashRoom');
+				localStorage.setItem('userInfo', JSON.stringify(wc.playerInfo));
+				$location.path('/home');
 			}	
 		}, function(err){
 			console.log(err);
