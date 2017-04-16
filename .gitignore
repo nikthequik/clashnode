@@ -4,8 +4,4 @@ public/bower_components
 *Obj.js
 npm-debug.log
 .DS_Store
-<<<<<<< HEAD
 credential.js
-=======
-credential.js
->>>>>>> -fix untracked files
