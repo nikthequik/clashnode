@@ -1,6 +1,6 @@
 node_modules/
+mysql.js
 public/bower_components
-public/js/credential.js
 *Obj.js
 npm-debug.log
 .DS_Store
