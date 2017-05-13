@@ -1,11 +1,11 @@
 var https = require('https');
+var Promise = require('promise');
 
-exports.getClanInfo = function(clanID) {
-
-  var getClan = function(clanID) {
+exports.getClanInfo = function(clanID, res) {
     var url = 'api.clashofclans.com';
     var path = '/v1/clans/' + clanID;
     var options = {
+      endpoint: res,
       host: url,
       path: path,
       headers: {
@@ -14,26 +14,19 @@ exports.getClanInfo = function(clanID) {
       },
       method: 'GET'
     };
-    var str = '';
-    var req = https.request(options, function(response) {
+    return https.request(options, function(response) {
       console.log(response.statusMessage, response.statusCode);
       response.on('data', function(res) {
         str += res;
       });
-      response.on('end', function () {
-        return str;
-      });
-    });
-    req.end();
-  };
+  });
 };
 
-exports.getPlayerInfo = function(playerID) {
-  console.log('getPlayerInfo');
-  return new Promise(function(resolve) {
+exports.getPlayerInfo = function(playerID, res) {
     var url = 'api.clashofclans.com';
     var path = '/v1/players/' + playerID;
     var options = {
+      endpoint: res,
       host: url,
       path: path,
       headers: {
@@ -42,20 +35,11 @@ exports.getPlayerInfo = function(playerID) {
       },
       method: 'GET'
     };
-    var str = '';
-    var req = https.request(options, function(response) {
+    return https.request(options, function(response) {
       console.log(response.statusMessage, response.statusCode);
-      response.on('data', function(res) {
-        str += res;
-      });
-      response.on('end', function () {
-        console.log(str);
-        resolve(str);
+      response.on('data', function(clashRes) {
+        options.endpoint.send(clashRes);
       });
     });
-    req.end();
-    //return str;
-  });
-  
 };
 

@@ -1,10 +1,9 @@
 var socket_io = require('socket.io');
-var mongoose = require('./js/data/mongoose');
+//var mongoose = require('./js/data/mongoose');
+var clashAPI = require('./js/clashAPI.js');
 var http = require('http');
 var https = require('https');
 var express = require('express');
-var clashAPI = require('./js/clashAPI');
-
 var app = express();
 app.use(express.static('public'));
 
@@ -14,18 +13,13 @@ var io = socket_io(server);
 //Endpoints
 
 app.get('/player/:playerID', function (req, res) {
-  clashAPI.getPlayerInfo(encodeURIComponent(req.params.playerID))
-  .then(function(result){
-    res.send(result);
-  });
+  var playerReq = clashAPI.getPlayerInfo(encodeURIComponent(req.params.playerID), res);
+  playerReq.end();
 });
 
 app.get('/clan/:clanID', function (req, res) {
-  console.log(req.params.clanID);
-  clashAPI.getClanInfo(encodeURIComponent(req.params.clanID))
-  .then(function(result){
-    res.send(result);
-  });
+  var clanReq = clashAPI.getClanInfo(encodeURIComponent(req.params.clanID), res);
+  clanReq.end();
 });
 
 //Socket IO

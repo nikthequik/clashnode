@@ -3,26 +3,50 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Clash Mash</title>
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no" />
 	<link href="https://fonts.googleapis.com/css?family=Acme|Righteous|Dosis:800|Alegreya+Sans+SC:800|Signika+Negative:700" rel="stylesheet">
-	<link href="img/favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/css/main.css">
+	<base href="/">
 </head>
 
 <body ng-app="clashmash">
-	<section id="banner">
-		<h1 class="title">Clash Mash</h1>
-	</section>
+	<header ng-controller='BannerCtrl as bc'>
+		<nav id="banner">
+			<h1 class="title">Clash Mash</h1>
+			<a ng-click="bc.visible=!bc.visible; bc.create()">
+				<img id="clan-shield" ng-src="{{bc.userClanShield}}" alt="">
+			</a>
+		</nav>
+		<nav ng-class="{'slide-up':!bc.visible, 'slide-down':bc.visible, 'reveal':bc.exists}" id="submenu">
+			<ul id="submenu-navlinks">
+				<a ng-href="#profile">
+					<li>Profile</li>
+				</a>
+				<a ng-href="#clan">
+					<li>Clan</li>
+				</a>
+				<a ng-href="#chat">
+					<li>Chat</li>
+				</a>
+				<a ng-href="#progress">
+					<li>Progress</li>
+				</a>
+			</ul>
+		</nav>
+	</header>
+	
 	<div id="view-container">
 		<div ng-view></div>
 	</div>
-	<hr>
+	
 	<section id="footer" class="row">
-		<article class="col-md-3 col-md-offset-2" id="social">
-			<a href="https://www.facebook.com/clashmash/"><img id="fbook" src="img/facebook.png" alt="ClashMash"></a>
-		</article>
-		<article class="col-md-3 col-md-offset-2" id="quiklink">
+		<hr>
+		<article class="col-md-6 col-md-offset-3" id="quiklink">
+			<a href="https://www.facebook.com/clashmash/">
+				<img id="fbook" src="img/facebook.png" alt="ClashMash">
+			</a>
 			<a href="http://www.nikthequik.com">A QuikStop Production</a>
 		</article>
 	</section>
@@ -45,8 +69,11 @@
 	<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 		<!--Modules-->
 	<script src="js/app.js"></script>
+		<!--Services-->
+	<script src="js/services/banner.svc.js"></script>
 		<!--Controllers-->
 	<script src="js/controllers/welcome.ctrl.js"></script>
+	<script src="js/controllers/banner.ctrl.js"></script>
 	<script src="js/controllers/home.ctrl.js"></script>
 	<script src="js/controllers/mash.ctrl.js"></script>
 	<script src="js/controllers/clan.ctrl.js"></script>

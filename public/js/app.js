@@ -15,7 +15,7 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 		controller: 'MashCtrl',
 		controllerAs: 'mc'
 	})
-	.when('/claninfo', {
+	.when('/clan', {
 		templateUrl: 'views/clanInfo.html',
 		controller: 'ClanCtrl',
 		controllerAs: 'cc'

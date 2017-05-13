@@ -1,11 +1,25 @@
 /*Global*/
 
-html, body {
-	padding: 3em 1em 0em 1em;
+body {
+	padding: 2.3em 1em 0em 1em;
 	/* background-image: url("../img/background.png"); */
-	background-color: #ddd;
+	background-color: #eee;
 	height: 100vh;
 	font-family: 'Alegreya Sans', monospace, sans-serif;
+}
+
+#view-container {
+	min-height: 30em;
+	padding: 0px 0 6em 0;
+}
+
+/*Header*/
+
+#clan-shield {
+	height: 2.8em;
+	position: absolute;
+	right: 0.4em;
+	top: 0.35em;
 }
 
 #banner {
@@ -20,6 +34,80 @@ html, body {
 	width: 100%;
 	height: 3em;
 }
+
+#submenu {
+	z-index: 50;
+	position: absolute;
+	box-shadow: 1px 1px 8px #333;
+	text-align: center;
+	left: 0;
+	padding: 0.8em 2px 0 0;
+	right: 0;
+	height: 2.4em;
+	background-color: #fff;
+	border-radius: 5px;
+	display: none;
+}
+
+.reveal {
+	display: block !important;
+}
+
+#submenu-navlinks {
+	padding: 0;
+}
+
+#submenu-navlinks li {
+	display: inline;
+	list-style: none;
+	text-decoration: none;
+	margin: 0 0.7em;
+	color: black;
+	font-weight: 700;
+}
+
+#submenu-navlinks a:hover {
+	text-decoration: none;
+}
+
+#submenu.slide-down {
+  -webkit-animation: 0.2s slide-down normal forwards;
+  animation: 0.2s slide-down normal forwards;
+  display: block;
+}
+
+#submenu.slide-up {
+  -webkit-animation: 0.2s slide-up normal forwards;
+  animation: 0.2s slide-up normal forwards;
+}
+
+/*.slide.ng-animate-start,
+.slide.ng-animate-active {
+  top:0;
+}
+
+.slide.ng-enter {
+	transition: .5s linear all;
+	-webkit-transition: .5s linear all;
+	top: 0px;
+}
+
+.slide.ng-enter.ng-enter-active {
+	top: 1em;
+}
+
+.slide.ng-leave {
+	transition: .5s linear all;
+	-webkit-transition: .5s linear all;
+	top: 1em; 
+}
+
+.slide.ng-leave-active {
+	top: 0px;
+}*/
+
+
+/*Welcome*/
 
 .title {
 	text-align: center;
@@ -53,13 +141,13 @@ html, body {
 	font-weight: 700;
 	text-align: left;
 	border-radius: 3px;
-	padding: 1em;
+	padding: 2em 1.1em 0;
 }
 
 .what {
-	font-size: 1.4em;
 	text-indent: 1.5em;
-	margin: -0.5em 0 1em 0;
+	font-size: 1.2em;
+	font-weight: 300;
 }
 
 .why ol {
@@ -67,8 +155,7 @@ html, body {
 }
 
 .why ol li {
-	margin: 0.4em 0 0 0;
-	padding: 0 0 0 1vw;
+	margin: 0em 4px 0 1em;
 	font-size: 1.8em;
 }
 
@@ -78,13 +165,12 @@ html, body {
 
 #join input {
 	text-align: center;
-	margin: 0 0 0 0;
 	font-size: 1.1em;
 	border-radius: 3px;
 	height: 28px;
 	border: 1px solid #333;
 	width: 65%;
-	font-family: Righteous, monospace, sans-serif;
+	font-family: 'Dosis', monospace, sans-serif;
 }
 
 #join label {
@@ -94,11 +180,12 @@ html, body {
 }
 
 #join input[type="submit"] {
-	margin: 1em 0 1em 0;
+	margin: 0.3em 0 0.4em 0;
 	background-color: orange;
 	box-shadow: 2px 3px 5px 1px #333;
 	font-size: 1.2em;
 	height: auto;
+	width: auto;
 }
 
 input[type="submit"]:hover {
@@ -114,48 +201,68 @@ input[type="submit"]:hover {
 
 .signin p {
 	text-align: center;
+	font-weight: 700;
 }
 
 /*Footer*/
 
+#footer {
+	position: fixed;
+	bottom: -0.8em;
+	right: 0;
+	background-color: orange;
+	left: 0;
+}
+
 #quiklink {
 	font-size: 1.4em;
-	padding: 0.5em 0 .5em 0;
+	padding: 0em 0 0.5em 0;
 	text-align: center;
+	display: block;
 }
 
 #quiklink a {
 	color: #333;
-}
-
-#social {
-	text-align: center;
+	display: inline;
 }
 
 #fbook {
-	margin: 0 0 1em 0;
-	width: 3.2em;
+	width: 1.1em;
+	background-color: linen;
+	border-radius: 4px;
+	margin: 0 0 3px 0;
 }
 
 hr {
 	border: 1px solid #333;
-	margin: 10px 0;
+	margin: 0;
 	border-radius: 1px;
 }
 
 /*Home*/
 
-#playerInfo *{
+#playerInfo * {
 	text-align: center;
-	font-family: Dosis, monospace, sans-serif;
+	font-family: 'Alegreya Sans', monospace, sans-serif;
+	font-weight: 700;
 }
 
 #playerTitle h1{
-	margin-bottom: 0;
+	margin: 1em 0 0 0;
+	font-family: 'Dosis', monospace, sans-serif;
 }
 
 .playerClanShield {
 	width: 1.7em;
+}
+
+#playerClanDisplay {
+	border: 1px solid #333;
+	font-family: 'Dosis', monospace, sans-serif;
+	border-radius: 5px;
+	box-shadow: #333 1px 2px 2px;
+	background-color: linen;
+	padding: 0.3em 0 0 0;
 }
 
 
@@ -264,9 +371,6 @@ hr {
 }
 
 @media screen and (max-width: 662px) {
-	.title {
-		font-size: 3.2em;
-	}
 
 	.exploder {
 		max-width: 48px;
@@ -284,13 +388,19 @@ hr {
 
 @media screen and (max-width: 440px) {
 	.title {
-		font-size: 2.4em;
+		font-size: 1.9em;
 		margin: 2px 0 0 4px;
 	}
 
-	.exploder {
-		max-width: 38px;
+	#banner {
+		height: 2.5em;
 	}
+
+	#clan-shield {
+	height: 2.4em;
+	right: 0.4em;
+	top: 0.25em;
+}
 
 	#assets {
 		font-size: 0.8em;
@@ -303,12 +413,21 @@ hr {
 	}
 
 	.what {
-		font-size: 1.3em;
-		margin: -25px 0 16px 0;
+		font-size: 1.2em;
+		margin: -0.4em 0 16px 0;
 	}
 
 	.why {
 		padding: 1em 1em 0;
+	}
+
+	/* Footer */
+	#footer {
+		position: fixed;
+		bottom: -0.8em;
+		right: 0;
+		background-color: orange;
+		left: 0;
 	}
 
 	.userClanName, .oppClanName {
@@ -356,4 +475,40 @@ hr {
 		width: 20%;
 	}
 	
+}
+
+@media screen and (max-height: 440px) {
+	#view-container {
+		padding: .5em 1em 0em 1em;
+	}
+	
+	#footer {
+		display: none;
+	}
+}
+
+/*Keyframes*/
+
+@-webkit-keyframes slide-up
+{
+  0%   {top:1em;}
+  100%  {top:0;}
+}
+
+@keyframes slide-up
+{
+  0%   {top: 2.4em;}
+  100%  {top:0;}
+}
+
+@-webkit-keyframes slide-down
+{
+  0%  {top:0;}
+  100%   {top:1em;}
+}
+
+@keyframes slide-down
+{
+  0%  {top:0;}
+  100%   {top: 2.4em;}
 }

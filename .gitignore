@@ -5,3 +5,4 @@ public/bower_components
 npm-debug.log
 .DS_Store
 credential.js
+.vscode
