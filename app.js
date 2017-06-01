@@ -3,24 +3,20 @@ var socket_io = require('socket.io');
 var clashAPI = require('./js/clashAPI.js');
 var http = require('http');
 var https = require('https');
+var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
-
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 var server = http.Server(app);
 var io = socket_io(server);
 
-//Endpoints
+clashRouter = require('./js/clashAPI')();
 
-app.get('/player/:playerID', function (req, res) {
-  var playerReq = clashAPI.getPlayerInfo(encodeURIComponent(req.params.playerID), res);
-  playerReq.end();
-});
-
-app.get('/clan/:clanID', function (req, res) {
-  var clanReq = clashAPI.getClanInfo(encodeURIComponent(req.params.clanID), res);
-  clanReq.end();
-});
+app.use('/', clashRouter);
+// app.use()
 
 //Socket IO
 

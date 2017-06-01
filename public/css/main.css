@@ -1,16 +1,24 @@
 /*Global*/
 
+body, html {
+	/*height: 100%;*/
+}
+
 body {
-	padding: 2.3em 1em 0em 1em;
 	/* background-image: url("../img/background.png"); */
 	background-color: #eee;
-	height: 100vh;
 	font-family: 'Alegreya Sans', monospace, sans-serif;
+	max-width: 100%;
 }
 
 #view-container {
 	min-height: 30em;
-	padding: 0px 0 6em 0;
+	height: 100%;
+	/* padding: 0px 0 6em 0; */
+}
+
+#view {
+	height: 100%;
 }
 
 /*Header*/
@@ -20,6 +28,7 @@ body {
 	position: absolute;
 	right: 0.4em;
 	top: 0.35em;
+	cursor: pointer;
 }
 
 #banner {
@@ -37,7 +46,7 @@ body {
 
 #submenu {
 	z-index: 50;
-	position: absolute;
+	position: fixed;
 	box-shadow: 1px 1px 8px #333;
 	text-align: center;
 	left: 0;
@@ -71,14 +80,14 @@ body {
 }
 
 #submenu.slide-down {
-  -webkit-animation: 0.2s slide-down normal forwards;
-  animation: 0.2s slide-down normal forwards;
+  -webkit-animation: 0.3s slide-down normal forwards;
+  animation: 0.3s slide-down normal forwards;
   display: block;
 }
 
 #submenu.slide-up {
-  -webkit-animation: 0.2s slide-up normal forwards;
-  animation: 0.2s slide-up normal forwards;
+  -webkit-animation: 0.3s slide-up normal forwards;
+  animation: 0.3s slide-up normal forwards;
 }
 
 /*.slide.ng-animate-start,
@@ -127,6 +136,8 @@ body {
 
 #introduction {
 	height: auto;
+	margin: 2em 0 0 0;
+	max-width: 100%;
 }
 
 #assets {
@@ -241,10 +252,11 @@ hr {
 
 /*Home*/
 
-#playerInfo * {
+#playerInfo {
 	text-align: center;
 	font-family: 'Alegreya Sans', monospace, sans-serif;
 	font-weight: 700;
+	margin: 5em 1em 0;
 }
 
 #playerTitle h1{
@@ -269,12 +281,21 @@ hr {
 
 /*ClashRoom*/
 
+#clashRoom {
+	margin: 3.3em 0 0 0;
+	height: 100%;
+}
+
+#chatWrap {
+	height: 100%;
+}
+
 #chat {
 	text-align: center;
-	box-shadow: 2px 2px 2px black;
+	box-shadow: 0px 0px 1px black;
 	background-color: #FFF;
 	border: 2px solid black;
-	height: 500px;
+	height: 80vh;
 	padding: 0.5em;
 	border-radius: 10px;
 	position: relative;
@@ -289,7 +310,8 @@ hr {
 }
 
 .userChatShield, .oppChatShield {
-	max-width: 2em;
+	max-width: 1.6em;
+	margin: 0 0 -0.3em 0;
 }
 
 .oppMessage {
@@ -305,6 +327,11 @@ hr {
 .message {
 	text-align: left;
 	list-style: none;
+	background-color: antiquewhite;
+	border-radius: 0.4em;
+	border: 1px solid black;
+	margin: 1px 0 0 0;
+	padding: 0.2em;
 }
 
 .messageText {
@@ -324,10 +351,9 @@ hr {
 #input {
 	border: 2px solid black;
 	border-radius: 8px;
-	margin-top: 1vh;
 	width: 78%;
-	height: 2.5em;
-	box-shadow: 2px 2px 2px black;
+	height: 1.6em;
+	box-shadow: 0px 0px 1px black;
 	font-size: 1.5em;
 }
 
@@ -336,7 +362,8 @@ hr {
 }
 
 #userShield, #oppShield {
-	max-width: 25%;
+	max-width: 4.8em;
+	margin: 1.3em 0 -1.8em 0;
 }
 
 .attLabel {
@@ -346,17 +373,46 @@ hr {
 .description {
 	min-height: 15vh;
 	text-indent: 2em;
-	font-size: 1.7em;
+	font-size: 1.5em;
+	margin: 0 auto;
+	width: 72vw;
 }
 
 #masher {
-	margin: 1vh 0 0 1vh;
+	margin: 1vh 0 0 -12px;
 	width: 19%;
+	padding: 0 0 0 0;
 	border-radius: 8px;
 	background-color: #333;
-	height: 2em;
+	height: 1.6em;
 	color: #fff;
-	font-size: 2em;
+	font-size: 1.5em;
+}
+
+/*Clan Info*/
+
+#clanInfo {
+	max-width: 100%;
+	padding: 3em 0.9em 0;
+	margin: 0;
+	text-align: center;
+}
+
+.userClanName {
+	font-family: 'Dosis', Georgia, 'Times New Roman', Times, sans-serif;
+}
+
+/*Progress*/
+
+#progress {
+	max-width: 100%;
+	text-align: center;
+	padding: 3em 0 0 0;
+	margin: 0;
+}
+
+#progressTitle {
+	font-family: 'Dosis', Georgia, 'Times New Roman', Times, sans-serif;
 }
 
 @media screen and (max-width: 800px) {
@@ -365,9 +421,9 @@ hr {
 		margin: -0.3em 0 0 0;
 	}
 
-	.clanDescription {
+	/*.clanDescription {
 		display: none;
-	}
+	}*/
 }
 
 @media screen and (max-width: 662px) {
@@ -382,7 +438,7 @@ hr {
 	}
 
 	#chat {
-		margin: 0em 0 0 0;
+		margin: 0;
 	}
 }
 
@@ -445,15 +501,17 @@ hr {
 	}
 
 	.description {
-		font-size: 1.5em;
+		font-size: 1em;
+		text-align: center;
+		width: 86vw;
 	}
 
 	.attLabel {
-		font-size: 2em;
+		font-size: 1.5em;
 	}
 
 	.location, .level, .wins {
-		font-size: 1.7em;
+		font-size: 1.5em;
 	}
 
 	.messageText {
@@ -465,12 +523,13 @@ hr {
 	}
 
 	#input {
-		width: 76%;
-		margin: 0 0 0.5em 0;
+		width: 78%;
+		height: 2.3em;
+		font-size: 1.1em;
 	}
 
 	#masher {
-		height: 2.6em;
+		height: 1.8em;
 		font-size: 1.4em;
 		width: 20%;
 	}
@@ -484,6 +543,10 @@ hr {
 	
 	#footer {
 		display: none;
+	}
+
+	#chat {
+		height: 68vh;
 	}
 }
 

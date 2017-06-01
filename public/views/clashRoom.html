@@ -1,47 +1,14 @@
-<div>	
-	<section id='clashRoom' class='row'>
-		<div id='userClan' class='col-md-4'>
-			<div id='userClanInfo'>
-				<h1 class='userClanName'>{{mc.userClan.name}}</h1>
-				<img ng-src='{{mc.userClan.badgeUrls.large}}' id='userShield'>
-				<div class="clanDescription">
-					<h3 class='description'>{{mc.userClan.description}}</h3>
-					<h2 class='attLabel country'>Country</h2>
-					<h3 class='location'>{{mc.userClan.location.name}}</h3>
-					<h2 class='attLabel level'>Clan Level</h2>
-					<h3 class='level'>{{mc.userClan.clanLevel}}</h3>
-					<h2 class='attLabel warWins'>War Wins</h2>
-					<h3 class='wins'>{{mc.userClan.warWins}}</h3>
-				</div>
-			</div>
+<section id='clashRoom' class='row'>
+	<div id='chatWrap' class='col-md-12'>
+		<div id='chat'>
+			<ul >
+				<li class='firstMessage'>Welcome to ClashMash!</li>
+			</ul>
 		</div>
-		<div class='col-md-4'>
-			<div id='chat'>
-				<ul >
-					<li class='firstMessage'>Welcome to ClashMash!</li>
-				</ul>
-			</div>
-			<form ng-submit='mc.postMessage()'>
-				<input id='input' class='col-md-4' ng-model='mc.messageText' type='text' autocomplete="off" required>
-				<label for="masher"></label>
-				<input id='masher' type="submit" value="Mash">
-			</form>
-		</div>
-		<div id='oppClan' class='col-md-4'>
-			
-			<div id='oppClanInfo'>
-				<h1 class='oppClanName'>{{mc.oppClan.name}}</h1>
-				<img ng-src='{{mc.oppClan.badgeUrls.large}}' alt='' id='oppShield'>
-				<div class="clanDescription">
-					<h3 class='description'>{{mc.oppClan.description}}</h3>
-					<h2 class='attLabel country'>Country</h2>
-					<h3 class='location'>{{mc.oppClan.location.name}}</h3>
-					<h2 class='attLabel level'>Clan Level</h2>
-					<h3 class='level'>{{mc.oppClan.clanLevel}}</h3>
-					<h2 class='attLabel warWins'>War Wins</h2>
-					<h3 class='wins'>{{mc.oppClan.warWins}}</h3>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
+		<form ng-submit='mc.postMessage()'>
+			<input id='input' ng-model='mc.messageText' type='text' autocomplete="off" required>
+			<label for="masher"></label>
+			<input id='masher' type="submit" value="Mash">
+		</form>
+	</div>
+</section>

@@ -1,5 +1,5 @@
 angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
-.config( ['$routeProvider', function($routeProvider){
+.config( ['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 	$routeProvider.when('/', {
 		templateUrl: 'views/welcome.html',
 		controller: 'WelcomeCtrl',
@@ -20,7 +20,19 @@ angular.module('clashmash', ['ngRoute', 'ui.bootstrap'])
 		controller: 'ClanCtrl',
 		controllerAs: 'cc'
 	})
+	.when('/profile', {
+		templateUrl: 'views/home.html',
+		controller: 'HomeCtrl',
+		controllerAs: 'hc'
+	})
+	.when('/progress', {
+		templateUrl: 'views/progress.html',
+		controller: 'ProgCtrl',
+		controllerAs: 'pc'
+	})
 	.otherwise({
 		templateUrl: 'views/welcome.html'
 	});
+
+	$locationProvider.html5Mode(true);
 }]);

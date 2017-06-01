@@ -8,7 +8,7 @@
 	<link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/css/main.css">
-	<base href="/">
+	<base href="/public">
 </head>
 
 <body ng-app="clashmash">
@@ -21,16 +21,16 @@
 		</nav>
 		<nav ng-class="{'slide-up':!bc.visible, 'slide-down':bc.visible, 'reveal':bc.exists}" id="submenu">
 			<ul id="submenu-navlinks">
-				<a ng-href="#profile">
+				<a ng-click="bc.visible=!bc.visible" href="/profile">
 					<li>Profile</li>
 				</a>
-				<a ng-href="#clan">
+				<a ng-click="bc.visible=!bc.visible" href="/clan">
 					<li>Clan</li>
 				</a>
-				<a ng-href="#chat">
+				<a ng-click="bc.visible=!bc.visible" href="/clashRoom">
 					<li>Chat</li>
 				</a>
-				<a ng-href="#progress">
+				<a ng-click="bc.visible=!bc.visible" href="/progress">
 					<li>Progress</li>
 				</a>
 			</ul>
@@ -38,7 +38,7 @@
 	</header>
 	
 	<div id="view-container">
-		<div ng-view></div>
+		<div id="view" ng-view></div>
 	</div>
 	
 	<section id="footer" class="row">
@@ -77,5 +77,6 @@
 	<script src="js/controllers/home.ctrl.js"></script>
 	<script src="js/controllers/mash.ctrl.js"></script>
 	<script src="js/controllers/clan.ctrl.js"></script>
+	<script src="js/controllers/prog.ctrl.js"></script>
 </body>
 </html>
