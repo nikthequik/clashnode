@@ -1,5 +1,8 @@
 var https = require('https');
 var express = require('express');
+var db = require('./data/mongoose');
+var Message = require ('./data/models/MessageModel');
+var mongoose = require('mongoose');
 
 //Endpoints
 
@@ -79,6 +82,41 @@ var routes = function() {
       };
       
       getClanInfo(clanID);
+  });
+
+  clashRouter.route('/messages/:clanId')
+  .get(function(req, res) {
+    //db(req.params.clanId);
+    var query = req.query.clanTag = req.params.clanId;
+    Message.find(query, function(err, messages) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        console.log(messages);
+        // mongoose.connection.close(function(){
+        //   console.log('Mongo Disconnected!')
+        // });
+        res.status(200).json(messages);
+      }
+    });
+    
+    
+  })
+  // .post(function(req, res) {
+    
+  // })
+  .delete(function(req, res) {
+    console.log('delete');
+    Message.remove({}, function(err) {
+      if (err) {
+        res.status(500).send();
+      }
+      else {
+        res.status(202).send();
+      }
+      
+    });
   });
 
   clashRouter.route('*')

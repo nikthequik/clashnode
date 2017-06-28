@@ -7,23 +7,25 @@ var minifyCss = require('gulp-minify-css');
 var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
 var clean = require('gulp-clean');
-var ghPages = require('gulp-gh-pages');
 
-var bases = {
-	app : 'app/',
-	countries: 'app/countries/',
-	countryDetail: 'app/countryDetail/',
-}
+// var bases = {
+// 	app : 'app/',
+// 	countries: 'app/countries/',
+// 	countryDetail: 'app/countryDetail/',
+// }
 
 var paths = {
-  scripts: [ 'app/**/*.js', '!app/bower_components/**/*.js' ],
-  html: [
-    './app/**/*.html',
-    '!./app/index.html',
-    '!./app/bower_components/**/*.html'
+  scripts: [ 
+    './js/**/*.js', 
+    '!public/bower_components/**/*.js',
   ],
-  images: ['./app/img/**/*'],
-  index: './app/index.html',
+  html: [
+    './public/**/*.html',
+    '!./public/index.html'
+    //,'!./public/bower_components/**/*.html'
+  ],
+  images: ['./public/img/**/*'],
+  index: './public/index.html',
   build: './build/'
 }
 /* 1 */

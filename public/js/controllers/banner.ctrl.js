@@ -1,5 +1,5 @@
 var app = angular.module('clashmash');
-app.controller('BannerCtrl', ['BannerService', '$scope', function(BannerService, $scope) {
+app.controller('BannerCtrl', ['$scope', function($scope) {
 	var bc = this;
 	bc.userInfo = JSON.parse(localStorage.getItem('userInfo'));
     if (bc.userInfo != null) {

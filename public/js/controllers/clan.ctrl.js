@@ -7,24 +7,21 @@ angular.module('clashmash')
 	cc.getClanInfo = function() {
 		$http.get(url)
 			.then(function (res) {
-				if (res.data.reason == "notFound") {
-					cc.clanNotFound = true;
-				} else {
+				
+				if (res.data) {
 					cc.userClan = res.data;
-					console.log(cc.userClan);
 					localStorage.setItem('clanInfo', JSON.stringify(cc.userClan));
-					//cc.$emit('addNav', cc.playerInfo);
-					//$rootScope.$broadcast('newData', cc.playerInfo);
 				}
+				else {
+					cc.userClan = localStorage.setItem('clanInfo', JSON.stringify(cc.userClan));
+				}
+				
 			}, function (err) {
 				console.log(err);
 				$location.path('/');
 			});
 	};
-	if (JSON.parse(localStorage.getItem('clanInfo')) == null) {
-		cc.getClanInfo();
-	} else {
-		cc.userClan = JSON.parse(localStorage.getItem('clanInfo'));
-	}
+
+	cc.getClanInfo();
 	
 }]);

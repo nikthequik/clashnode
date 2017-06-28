@@ -282,7 +282,7 @@ hr {
 /*ClashRoom*/
 
 #clashRoom {
-	margin: 3.3em 0 0 0;
+	margin: 2.9em 0 0 0;
 	height: 100%;
 }
 
@@ -368,13 +368,14 @@ hr {
 
 .attLabel {
 	text-decoration: underline;
+	font-weight: 700;
 }
 
 .description {
 	min-height: 15vh;
-	text-indent: 2em;
 	font-size: 1.5em;
 	margin: 0 auto;
+	font-weight: 500;
 	width: 72vw;
 }
 
@@ -392,14 +393,63 @@ hr {
 /*Clan Info*/
 
 #clanInfo {
-	max-width: 100%;
-	padding: 3em 0.9em 0;
-	margin: 0;
+	max-width: 90%;
+	padding: 3em 0.9em 2em;
+	margin: 0 auto;
 	text-align: center;
 }
 
 .userClanName {
 	font-family: 'Dosis', Georgia, 'Times New Roman', Times, sans-serif;
+}
+
+.clanAtt {
+	font-weight: 500;
+	font-size: 1.3em;
+}
+
+#memberList {
+	list-style: none;
+	padding: 0;
+}
+
+.memberListItem {
+	font-size: 1.5em;
+	border: 1px solid black;
+	padding: 0.4em 0.8em 0;
+	border-radius: 7px;
+	box-shadow: 0px 0px 6px black;
+	background-color: wheat;
+}
+
+.memberListItem h4 {
+	font-weight: 700;
+}
+
+#memberListTitle {
+	text-decoration: underline;
+	margin: 0.2em 0 0.2em;
+	font-weight: 700;
+	font-size: 2.5em;
+}
+
+.memberName {
+	background-color: cornsilk;
+	border-radius: 4px;
+	font-weight: 700;
+	padding: 0.3em;
+	box-shadow: 0 0 5px black;
+	margin: 0;
+}
+
+.leagueShield {
+	margin: -0.5em 0;
+}
+
+.trophy {
+	max-width: 1.3em;
+	vertical-align: text-bottom;
+	margin: 0 5px 0 0;
 }
 
 /*Progress*/
@@ -439,6 +489,7 @@ hr {
 
 	#chat {
 		margin: 0;
+		height: 78vh;
 	}
 }
 
@@ -503,7 +554,7 @@ hr {
 	.description {
 		font-size: 1em;
 		text-align: center;
-		width: 86vw;
+		width: 72vw;
 	}
 
 	.attLabel {
@@ -530,7 +581,7 @@ hr {
 
 	#masher {
 		height: 1.8em;
-		font-size: 1.4em;
+		font-size: 1.2em;
 		width: 20%;
 	}
 	

@@ -1,5 +1,5 @@
 var socket_io = require('socket.io');
-//var mongoose = require('./js/data/mongoose');
+var mongoose = require('./js/data/mongoose');
 var clashAPI = require('./js/clashAPI.js');
 var http = require('http');
 var https = require('https');
@@ -11,12 +11,13 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 var server = http.Server(app);
-var io = socket_io(server);
+var io = socket_io.listen(server);
+var Message = require('./js/data/models/MessageModel');
+var db = require('./js/data/mongoose')('clashmash');
 
 clashRouter = require('./js/clashAPI')();
 
 app.use('/', clashRouter);
-// app.use()
 
 //Socket IO
 
@@ -30,9 +31,12 @@ io.on('connection', function (socket) {
   });
 
   socket.on('message', function (message) {
+    //db(message.clanTag);
+    var newMessage = new Message(message);
+    newMessage.save();
     console.log('Received message:', message);
     io.emit('message', message);
   });
 });
-
+console.log(process.env.PORT);
 server.listen(process.env.PORT || 3000);

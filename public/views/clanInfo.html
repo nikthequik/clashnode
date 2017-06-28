@@ -5,12 +5,34 @@
         <h1 class="userClanName">{{cc.userClan.name}}</h1>
         <div class="clanDescription">
             <h3 class="description">{{cc.userClan.description}}</h3>
-            <h2 class="attLabel country">Country</h2>
-            <h3 class="location">{{cc.userClan.location.name}}</h3>
-            <h2 class="attLabel level">Clan Level</h2>
-            <h3 class="level">{{cc.userClan.clanLevel}}</h3>
-            <h2 class="attLabel warWins">War Wins</h2>
-            <h3 class="wins">{{cc.userClan.warWins}}</h3>
+            <h2 ng-cloak class="attLabel country">Country</h2>
+            <h3 class="clanAtt">{{cc.userClan.location.name}}</h3>
+            <h2 ng-cloak class="attLabel level">Clan Level</h2>
+            <h3 class="clanAtt">{{cc.userClan.clanLevel}}</h3>
+            <h2 ng-cloak class="attLabel warWins">War Wins</h2>
+            <h3 class="clanAtt">{{cc.userClan.warWins}}</h3>
+            <h2 ng-cloak id="memberListTitle">Clan Members</h2>
+            <ul ng-repeat="member in cc.userClan.memberList" id="memberList" class = "col-md-6 col-md-offset-3">
+                <li class="memberListItem row">
+                    <h3 class="col-md-12 memberName">{{member.name}}</h3>
+                    <div class="row">
+                        <div ng-cloak class="col-xs-6">
+                            <h4>Rank</h4>
+                            <h5>{{member.role | changeRole | uppercase}}</h5>
+                        </div>
+                        <div ng-cloak class="col-xs-6">
+                            <h4>Level</h4>
+                            <h5>{{member.expLevel}}</h5>
+                        </div>
+                    </div>
+                    <h4>League</h4>
+                    <img class="leagueShield" ng-src="{{member.league.iconUrls.small}}" alt="League">
+
+                    <h4><img class="trophy" src="../img/trophy.png" alt="Trophies">{{member.trophies}}</h4>
+                    <h4>Donation Ratio</h4>
+                    <h5>{{member.donations / member.donationsReceived | number:2}}</h5>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

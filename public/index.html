@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Acme|Righteous|Dosis:800|Alegreya+Sans+SC:800|Signika+Negative:700" rel="stylesheet">
 	<link href="/img/favicon.ico" rel="icon" type="image/x-icon" />
 	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/animate.css">
 	<link rel="stylesheet" href="/css/main.css">
 	<base href="/public">
 </head>
@@ -38,7 +39,7 @@
 	</header>
 	
 	<div id="view-container">
-		<div id="view" ng-view></div>
+		<div id="view" class="animated bounceInDown" ng-view></div>
 	</div>
 	
 	<section id="footer" class="row">
@@ -70,7 +71,9 @@
 		<!--Modules-->
 	<script src="js/app.js"></script>
 		<!--Services-->
-	<script src="js/services/banner.svc.js"></script>
+	<script src="js/services/user.svc.js"></script>
+		<!--Filters-->
+	<script src="js/filters/rolechange.filter.js"></script>
 		<!--Controllers-->
 	<script src="js/controllers/welcome.ctrl.js"></script>
 	<script src="js/controllers/banner.ctrl.js"></script>
