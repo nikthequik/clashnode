@@ -7,15 +7,9 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 app.set('view engine', 'ejs');
-
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-// app.all('/*', function(req, res, next) {
-//   // Just send the index.html for other files to support HTML5Mode
-//   res.sendFile('/public/index.html', { root: __dirname });
-// });
-
 var server = http.Server(app);
 var io = socket_io.listen(server);
 var Message = require('./js/data/models/MessageModel');
@@ -48,4 +42,5 @@ io.on('connection', function (socket) {
     io.emit('message', message);
   });
 });
+console.log(process.env.PORT);
 server.listen(process.env.PORT || 3000);

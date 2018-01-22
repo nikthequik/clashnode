@@ -14,14 +14,14 @@ app.controller('WelcomeCtrl', ['$http', '$location', '$rootScope', function ($ht
 		$http.get(url)
 			.then(function (res) {
 
-				if (res.data.reason == "notFound" ||
-					res.data.reason == "unknownException") {
-					
+				if (res.data.reason == "notFound") {
 					wc.playerNotFound = true;
 				} 
+				else if (res.data.reason == "unknownException") {
+					wc.playerNotFound = true;
+				}
 				else {
 					wc.playerInfo = res.data;
-					//console.log(res.data);
 					localStorage.setItem('userInfo', JSON.stringify(wc.playerInfo));
 					// wc.$emit('addNav', wc.playerInfo);
 					$rootScope.$broadcast('newData', wc.playerInfo);
@@ -32,8 +32,4 @@ app.controller('WelcomeCtrl', ['$http', '$location', '$rootScope', function ($ht
 				$location.path('/');
 			});
 	};
-	
-	if (localStorage.getItem('userInfo')) {
-		$location.path('/home');
-	}
 }]);

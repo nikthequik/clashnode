@@ -5,8 +5,8 @@
 				<li class='firstMessage'>Welcome to ClashMash!</li>
 			</ul>
 		</div>
-		<form ng-submit='mc.postMessage()'>
-			<input id='input' ng-model='mc.messageText' type='text' autocomplete="off" required>
+		<form ng-submit='mc.postMessage()' id='chatControls'>
+			<input id='chatInput' ng-model='mc.messageText' type='text' autocomplete="off" required>
 			<label for="masher"></label>
 			<input id='masher' type="submit" value="Mash">
 		</form>

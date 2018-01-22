@@ -12,8 +12,9 @@
             <h2 ng-cloak class="attLabel warWins">War Wins</h2>
             <h3 class="clanAtt">{{cc.userClan.warWins}}</h3>
             <h2 ng-cloak id="memberListTitle">Clan Members</h2>
-            <ul ng-repeat="member in cc.userClan.memberList" id="memberList" class = "col-md-6 col-md-offset-3">
-                <li class="memberListItem row">
+            Search: <input class='memberSearch' ng-model='memberSearch'>
+            <ul id="memberList" class = "col-md-6 col-md-offset-3">
+                <li ng-repeat="member in cc.userClan.memberList | filter:memberSearch" class="memberListItem row">
                     <h3 class="col-md-12 memberName">{{member.name}}</h3>
                     <div class="row">
                         <div ng-cloak class="col-xs-6">

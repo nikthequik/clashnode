@@ -10,12 +10,12 @@ var app = angular.module('clashmash')
 	mc.members = mc.clanInfo.memberList;
 	mc.username = mc.userInfo.name;
 
+	//Get any messages stored in the DB
 	mc.getMessageHistory = function() {
+		console.log('Fetching messages...');
 		$http.get('/messages/' + mc.clanInfo.tag.substring(1))
 			.then(function (res) {
-				
-				// mc.messageHistory = res;
-				if (res.data[0].author) {
+				if (res.data.length > 0) {
 					for (i=0; i < res.data.length; i++) {
 						var messageHtml = '<li class="message animated bounceInLeft"><img class="userChatShield" src="' + 
 							mc.clanInfo.badgeUrls.small + '" />' + '<p class="messageText">' +
@@ -23,16 +23,15 @@ var app = angular.module('clashmash')
 						chat.prepend(messageHtml);
 					}
 				}
-				
-				//console.log(mc.messageHistory);
 			}, function (err) {
 				console.log(err);
 				
 			});
 	};
-	mc.getMessageHistory();
 	
+	//Emit message to others in chat
 	mc.postMessage = function() {
+		
 		socket.emit('message', {
 			clan: mc.clanInfo.name,
 			clanTag: mc.clanInfo.tag.substring(1),
@@ -43,12 +42,13 @@ var app = angular.module('clashmash')
 		mc.messageText = '';
 	};
 
+	//Respond to incoming message
 	socket.on('message', function(message) {
 		console.log(message);
 		if (message.clan === mc.clanInfo.name) {
 			var messageHtml = '<li class="message animated bounceInLeft"><img class="userChatShield" src="' + 
 			mc.clanInfo.badgeUrls.small + '" />' + '<p class="messageText">' +
-			mc.username + ': ' + message.message + '</p></li>';
+			message.author + ': ' + message.message + '</p></li>';
 			chat.prepend(messageHtml);
 		} else {
 			var messageHtml = '<li class="oppMessage">' + 
@@ -58,4 +58,12 @@ var app = angular.module('clashmash')
 			chat.prepend(messageHtml);
 		}	
 	});
+
+	//Dynamic Height TODO
+	
+
+	//Fetch message history
+	if(chat[0].childElementCount < 2) {
+		mc.getMessageHistory();
+	}
 }]);

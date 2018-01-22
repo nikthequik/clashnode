@@ -1,24 +1,24 @@
 /*Global*/
 
 body, html {
-	/*height: 100%;*/
+	height: 100%;
 }
 
 body {
-	/* background-image: url("../img/background.png"); */
-	background-color: #eee;
+	background-color: #333;
 	font-family: 'Alegreya Sans', monospace, sans-serif;
 	max-width: 100%;
+	height: 85%;
 }
 
 #view-container {
 	min-height: 30em;
 	height: 100%;
-	/* padding: 0px 0 6em 0; */
 }
 
 #view {
 	height: 100%;
+	/* position: absolute; */
 }
 
 /*Header*/
@@ -27,7 +27,7 @@ body {
 	height: 2.8em;
 	position: absolute;
 	right: 0.4em;
-	top: 0.35em;
+	top: 0.15em;
 	cursor: pointer;
 }
 
@@ -71,7 +71,7 @@ body {
 	list-style: none;
 	text-decoration: none;
 	margin: 0 0.7em;
-	color: black;
+	color: #333;
 	font-weight: 700;
 }
 
@@ -138,6 +138,7 @@ body {
 	height: auto;
 	margin: 2em 0 0 0;
 	max-width: 100%;
+	color: #eee;
 }
 
 #assets {
@@ -220,6 +221,7 @@ input[type="submit"]:hover {
 #footer {
 	position: fixed;
 	bottom: -0.8em;
+	height: 3em;
 	right: 0;
 	background-color: orange;
 	left: 0;
@@ -246,35 +248,57 @@ input[type="submit"]:hover {
 
 hr {
 	border: 1px solid #333;
-	margin: 0;
+	margin: 0 auto;
 	border-radius: 1px;
 }
 
 /*Home*/
 
-#playerInfo {
-	text-align: center;
-	font-family: 'Alegreya Sans', monospace, sans-serif;
+.playerName {
+	margin: 0 0 0 0;
+	font-family: monospace, sans-serif;
 	font-weight: 700;
-	margin: 5em 1em 0;
 }
 
-#playerTitle h1{
-	margin: 1em 0 0 0;
+#playerInfo {
+	text-align: center;
+	font-family: monospace, sans-serif;
+	font-weight: 700;
+	padding: 3.4em .5em 1.5em;
+}
+
+#playerTitle div {
+	margin: 0 0 1em 0;
 	font-family: 'Dosis', monospace, sans-serif;
+	border: 1px solid #333;
+	border-radius: 5px;
+	box-shadow: #333 1px 2px 2px;
+	min-height: 87vh;
+	background-color: linen;
+	padding: 0.3em 0 0 0;
+}
+
+#playerTitle div>* {
+	font-family: monospace, sans-serif;
+}
+
+#playerTitle div hr {
+	max-width: 65vw;
+}
+
+#playerTitle div sub {
+	font-size: 1em;
 }
 
 .playerClanShield {
-	width: 1.7em;
+	max-width: 20vw;
 }
 
 #playerClanDisplay {
-	border: 1px solid #333;
 	font-family: 'Dosis', monospace, sans-serif;
-	border-radius: 5px;
-	box-shadow: #333 1px 2px 2px;
-	background-color: linen;
 	padding: 0.3em 0 0 0;
+	font-weight: 700;
+	margin: 1px 0 3px 0;
 }
 
 
@@ -282,12 +306,18 @@ hr {
 /*ClashRoom*/
 
 #clashRoom {
-	margin: 2.9em 0 0 0;
+	margin: 3.3em 0 0 0;
 	height: 100%;
 }
 
 #chatWrap {
 	height: 100%;
+	padding: 0 0.5em;
+}
+
+#chatControls {
+	z-index: 100;
+	margin: 0 0 2em 0;
 }
 
 #chat {
@@ -295,7 +325,7 @@ hr {
 	box-shadow: 0px 0px 1px black;
 	background-color: #FFF;
 	border: 2px solid black;
-	height: 80vh;
+	height: calc(100vh - 9em);
 	padding: 0.5em;
 	border-radius: 10px;
 	position: relative;
@@ -310,8 +340,7 @@ hr {
 }
 
 .userChatShield, .oppChatShield {
-	max-width: 1.6em;
-	margin: 0 0 -0.3em 0;
+	max-width: 1.8em;
 }
 
 .oppMessage {
@@ -328,6 +357,7 @@ hr {
 	text-align: left;
 	list-style: none;
 	background-color: antiquewhite;
+	width: 80%;
 	border-radius: 0.4em;
 	border: 1px solid black;
 	margin: 1px 0 0 0;
@@ -340,7 +370,8 @@ hr {
 	word-wrap: break-word;
 }
 
-#userClanInfo h1, h2, h3{
+#userClanInfo h1, 
+h2, h3{
 	font-family: Alegreya Sans, Monospace, sans-serif;
 }
 
@@ -348,13 +379,14 @@ hr {
 	font-family: Alegreya Sans, Monospace, sans-serif;
 }
 
-#input {
+#chatInput {
 	border: 2px solid black;
 	border-radius: 8px;
-	width: 78%;
+	width: calc(97vw - 4em);
 	height: 1.6em;
 	box-shadow: 0px 0px 1px black;
 	font-size: 1.5em;
+	margin: 0.3em 0 0.5em 0;
 }
 
 #userClan, #oppClan {
@@ -371,6 +403,41 @@ hr {
 	font-weight: 700;
 }
 
+#masher {
+	margin: 1vh 0 0 -12px;
+	width: 3em;
+	float: right;
+	padding: .2em;
+	border-radius: 8px;
+	background-color: #333;
+	height: 2em;
+	color: #fff;
+	background: linear-gradient(to right bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 20%);
+	font-size: 1.5em;
+}
+
+/*Clan Info*/
+
+#clanInfo {
+	max-width: 96%;
+	padding: 3.5em 0.2em 2em;
+	margin: 0 auto;
+	text-align: center;
+	color: #eee;
+}
+
+#clanInfo>div {
+	border: 1px solid #333;
+	border-radius: 5px;
+	background-color: linen;
+	color: #333;
+}
+
+.clanDescription h2, 
+.clanDescription h3 {
+	font-family:'Cutive Mono', sans-serif;
+}
+
 .description {
 	min-height: 15vh;
 	font-size: 1.5em;
@@ -379,38 +446,40 @@ hr {
 	width: 72vw;
 }
 
-#masher {
-	margin: 1vh 0 0 -12px;
-	width: 19%;
-	padding: 0 0 0 0;
-	border-radius: 8px;
-	background-color: #333;
-	height: 1.6em;
-	color: #fff;
-	font-size: 1.5em;
-}
-
-/*Clan Info*/
-
-#clanInfo {
-	max-width: 90%;
-	padding: 3em 0.9em 2em;
-	margin: 0 auto;
-	text-align: center;
-}
-
 .userClanName {
 	font-family: 'Dosis', Georgia, 'Times New Roman', Times, sans-serif;
+}
+
+.userClanName, .oppClanName {
+	font-size: 2.3em;
+}
+
+#userClanInfo h1, 
+#userClanInfo h2,
+#userClanInfo h3 {
+	margin: 0 0 0 0;
+	font-weight: 700;
 }
 
 .clanAtt {
 	font-weight: 500;
 	font-size: 1.3em;
+	margin: 0 0 .3em 0;
+}
+
+.memberSearch {
+	margin: 0 0 1em 0;
+	border: 2px solid black;
+	border-radius: 8px;
+	box-shadow: 0px 0px 1px black;
 }
 
 #memberList {
 	list-style: none;
 	padding: 0;
+	float: none;
+	max-width: 95%;
+	margin: 0 auto;
 }
 
 .memberListItem {
@@ -420,6 +489,8 @@ hr {
 	border-radius: 7px;
 	box-shadow: 0px 0px 6px black;
 	background-color: wheat;
+	color: #333;
+	margin: 0 0 0.4em 0;
 }
 
 .memberListItem h4 {
@@ -459,6 +530,7 @@ hr {
 	text-align: center;
 	padding: 3em 0 0 0;
 	margin: 0;
+	color: #eee;
 }
 
 #progressTitle {
@@ -489,24 +561,23 @@ hr {
 
 	#chat {
 		margin: 0;
-		height: 78vh;
 	}
 }
 
 @media screen and (max-width: 440px) {
 	.title {
-		font-size: 1.9em;
+		font-size: 2.3em;
 		margin: 2px 0 0 4px;
 	}
 
 	#banner {
-		height: 2.5em;
+		height: 3em;
 	}
 
 	#clan-shield {
-	height: 2.4em;
-	right: 0.4em;
-	top: 0.25em;
+	height: 3em;
+	right: 0.2em;
+	top: 0.05em;
 }
 
 	#assets {
@@ -530,25 +601,7 @@ hr {
 
 	/* Footer */
 	#footer {
-		position: fixed;
 		bottom: -0.8em;
-		right: 0;
-		background-color: orange;
-		left: 0;
-	}
-
-	.userClanName, .oppClanName {
-		font-size: 2.3em;
-	}
-
-	#userClanInfo h1, h2, h3{
-		margin: 0 0 0.2em 0;
-		font-weight: 700;
-	}
-
-	#oppClanInfo h1, h2, h3 {
-		margin: 0 0 .2em 0;
-		font-weight: 700;
 	}
 
 	.description {
@@ -559,6 +612,7 @@ hr {
 
 	.attLabel {
 		font-size: 1.5em;
+		margin: 0;
 	}
 
 	.location, .level, .wins {
@@ -574,15 +628,15 @@ hr {
 	}
 
 	#input {
-		width: 78%;
+		width: 82%;
 		height: 2.3em;
 		font-size: 1.1em;
+		margin: 0 0.5em 1em 0;
 	}
 
 	#masher {
-		height: 1.8em;
+		height: 2.3em;
 		font-size: 1.2em;
-		width: 20%;
 	}
 	
 }
@@ -598,6 +652,10 @@ hr {
 
 	#chat {
 		height: 68vh;
+	}
+
+	.playerClanShield {
+		max-width: 40vw;
 	}
 }
 
