@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-// app.all('/*', function(req, res, next) {
+// app.use('*', function(req, res) {
 //   // Just send the index.html for other files to support HTML5Mode
 //   res.sendFile('/public/index.html', { root: __dirname });
 // });

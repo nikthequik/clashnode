@@ -7,7 +7,7 @@ app.controller('BannerCtrl', ['$scope', function($scope) {
         bc.userClanName = bc.userInfo.clan.name;
     }
     $scope.$on('newData', function(event, data) {
-        console.log(data);
+        //console.log(data);
         if (typeof data == 'object' && data != null) {
             bc.userClanShield = data.clan.badgeUrls.small;
             bc.userClanName = data.clan.name;

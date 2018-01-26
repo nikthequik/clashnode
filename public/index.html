@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/css/animate.css">
 	<link rel="stylesheet" href="/css/main.css">
-	<base href="/public">
+	<base href="/">
 </head>
 
 <body ng-app="clashmash">
@@ -77,6 +77,8 @@
 	
 	<script src="socket.io/socket.io.js"></script>
 	<script src="bower_components/angular/angular.js"></script>
+	<!-- <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+	<script src="../node_modules/angular-chart.js/dist/angular-chart.min.js"></script> -->
 		<!--Dependencies-->
 	<script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -84,7 +86,9 @@
 		<!--Modules-->
 	<script src="js/root.js"></script>
 		<!-- Factories -->
-	
+	<script src="js/factories/getClanInfo.factory.js"></script>
+	<script src="js/factories/getUserInfo.factory.js"></script>
+	<script src="js/factories/getMessageHistory.factory.js"></script>
 		<!--Services-->
 	<script src="js/services/user.svc.js"></script>
 		<!--Filters-->

@@ -1,6 +1,8 @@
-angular.module('clashmash')
-.controller('ProgCtrl', [function(){
-    var pc = this;
+(function() {
+    angular.module('clashmash')
+    .controller('ProgCtrl', [function(){
+        var pc = this;
 
-    
-}]);
+        
+    }])
+})();
